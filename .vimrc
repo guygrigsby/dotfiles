@@ -1,5 +1,4 @@
 filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -9,6 +8,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
+Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'blueyed/vim-diminactive.git'
@@ -147,12 +147,10 @@ set cmdheight=2
 set number
 
 " Quickly time out on keycodes, but never time out on mappings
-set notimeout ttimeout ttimeoutlen=200
+set notimeout ttimeout ttimeoutlen=0
 
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
-" Use Spellchecker
-set spell
 
 
 "------------------------------------------------------------
