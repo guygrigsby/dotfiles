@@ -11,7 +11,7 @@ Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'blueyed/vim-diminactive.git'
+Plugin 'blueyed/vim-diminactive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -183,12 +183,17 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Map \- and \+ to resize window
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
 " VimGo
 " For running goimports on save
-"let g:go_fmt_command ="goimports"
+let g:go_fmt_command ="goimports"
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>db <Plug>(go-def)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <leader>r <Plug>(go-run-split)
@@ -203,5 +208,5 @@ au FileType go nmap <leader>rt <Plug>(go-run-tab)
 let g:airline#extensions#tabline#enabled = 1
 :hi ColorColumn ctermbg=0 guibg=#eee8d5
 let g:diminactive_use_colorcolumn = 1
-let g:diminactive_use_syntax = 1
+"let g:diminactive_use_syntax = 1
 "------------------------------------------------------------
