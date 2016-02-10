@@ -17,6 +17,8 @@ alias jdk8='export JAVA_HOME=`/usr/libexec/java_home -v 1.8`'
 alias ls='ls -G'
 alias ll='ls -lG'
 
+alias vim='nvim'
+
 # best prompt ... ever
 BLACK="\[\033[0;30m\]"
 DARK_GRAY="\[\033[1;30m\]"

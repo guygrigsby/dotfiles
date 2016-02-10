@@ -12,6 +12,8 @@ Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'blueyed/vim-diminactive'
+Plugin 'vim-scripts/mru.vim'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -186,6 +188,8 @@ nnoremap <C-L> :nohl<CR><C-L>
 " Map \- and \+ to resize window
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+nmap <Leader>m :MRU<CR>
 
 " VimGo
 " For running goimports on save
