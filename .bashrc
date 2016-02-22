@@ -18,6 +18,9 @@ alias ls='ls -G'
 alias ll='ls -lG'
 
 alias vim='nvim'
+#alias vi='vim'
+
+alias k='kubectl'
 
 # best prompt ... ever
 BLACK="\[\033[0;30m\]"

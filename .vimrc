@@ -170,6 +170,10 @@ set expandtab
 " two characters wide.
 "set shiftwidth=2
 "set tabstop=2
+"
+"
+"Folding
+set foldlevel=99
 
 
 "------------------------------------------------------------
@@ -183,13 +187,22 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+if has('nvim')
+        nnoremap <C-L> :nohl<CR><C-L>
+endif
 
 " Map \- and \+ to resize window
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
+"Most Recently Used Plugin
 nmap <Leader>m :MRU<CR>
+
+" neovim
+if has('nvim')
+        " neovim map <ESC> to exit insert mode in terminal
+        tnoremap <Esc> <C-\><C-n>
+endif
 
 " VimGo
 " For running goimports on save
@@ -208,6 +221,7 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>gg <Plug>(go-import)
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
+autocmd FileType go setlocal foldmethod=indent
 " Airline tab line
 let g:airline#extensions#tabline#enabled = 1
 :hi ColorColumn ctermbg=0 guibg=#eee8d5
