@@ -12,8 +12,9 @@ Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'blueyed/vim-diminactive'
-Plugin 'vim-scripts/mru.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -187,16 +188,14 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-if has('nvim')
         nnoremap <C-L> :nohl<CR><C-L>
-endif
 
 " Map \- and \+ to resize window
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
-"Most Recently Used Plugin
-nmap <Leader>m :MRU<CR>
+" CtrlP
+let g:ctrlp_working_path_mode = 'r'
 
 " neovim
 if has('nvim')
@@ -227,4 +226,9 @@ let g:airline#extensions#tabline#enabled = 1
 :hi ColorColumn ctermbg=0 guibg=#eee8d5
 let g:diminactive_use_colorcolumn = 1
 "let g:diminactive_use_syntax = 1
+" NO ARROWS
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 "------------------------------------------------------------

@@ -22,6 +22,9 @@ alias vim='nvim'
 
 alias k='kubectl'
 
+alias coral='cd ~/go/src/github.comcast.com/viper-cog/coral'
+alias libcoral='cd ~/go/src/github.comcast.com/viper-cog/libcoral'
+
 # best prompt ... ever
 BLACK="\[\033[0;30m\]"
 DARK_GRAY="\[\033[1;30m\]"
