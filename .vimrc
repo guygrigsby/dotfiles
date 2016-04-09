@@ -15,6 +15,8 @@ Plugin 'blueyed/vim-diminactive'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'rking/ag.vim'
+Plugin 'benekastah/neomake'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,6 +55,9 @@ set nocompatible
 
 " Enable syntax highlighting
 syntax on
+
+" Autoload files when changed
+set autoread
 
 
 "------------------------------------------------------------
@@ -174,7 +179,26 @@ set expandtab
 "
 "
 "Folding
+set foldmethod=indent
 set foldlevel=99
+
+" The Silver Searcher
+if executable('ag')
+        " Use ag over grep
+        set grepprg=ag\ --nogroup\ --nocolor
+
+        " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+        " ag is fast enough that CtrlP doesn't need to cache
+        let g:ctrlp_use_caching = 0
+endif
+" CTRLP fuzzy search within files
+let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_extensions = ['line']
+" CtrlP
+let g:ctrlp_working_path_mode = 'rw'
+
 
 
 "------------------------------------------------------------
@@ -194,9 +218,6 @@ map Y y$
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
-" CtrlP
-let g:ctrlp_working_path_mode = 'r'
-
 " neovim
 if has('nvim')
         " neovim map <ESC> to exit insert mode in terminal
@@ -210,7 +231,7 @@ let g:go_term_enabled = 1
 let g:go_term_mode = "split"
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>db <Plug>(go-def)
+au FileType go nmap <Leader>db <Plug>(go-doc-browser-browser)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <leader>r <Plug>(go-run-split)
 au FileType go nmap <leader>b <Plug>(go-build)
@@ -220,7 +241,6 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>gg <Plug>(go-import)
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
-autocmd FileType go setlocal foldmethod=indent
 " Airline tab line
 let g:airline#extensions#tabline#enabled = 1
 :hi ColorColumn ctermbg=0 guibg=#eee8d5

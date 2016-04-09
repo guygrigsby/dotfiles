@@ -23,7 +23,10 @@ alias vim='nvim'
 alias k='kubectl'
 
 alias coral='cd ~/go/src/github.comcast.com/viper-cog/coral'
+alias ops='cd ~/go/src/github.comcast.com/viper-cog/coral-ops'
 alias libcoral='cd ~/go/src/github.comcast.com/viper-cog/libcoral'
+alias pillar='cd ~/go/src/github.comcast.com/viper-cog/pillar'
+alias dock='eval "$(docker-machine env dev)"'
 
 # best prompt ... ever
 BLACK="\[\033[0;30m\]"
