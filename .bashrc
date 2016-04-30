@@ -5,7 +5,7 @@ export GOPATH=/Users/ggrisb/go
 export PATH=$PATH:$HOME/scripts:$GOPATH/bin
 export HOMEBREW_GITHUB_API_TOKEN=2ffbd838625f647652f801bc1aac3e4335f376f2
 export GO15VENDOREXPERIMENT=1
-set -o vi
+# set -o vi
 
 alias jdk6='export JAVA_HOME=`/usr/libexec/java_home -v 1.6`'
 alias jdk7='export JAVA_HOME=`/usr/libexec/java_home -v 1.7`'
@@ -27,6 +27,8 @@ alias ops='cd ~/go/src/github.comcast.com/viper-cog/coral-ops'
 alias libcoral='cd ~/go/src/github.comcast.com/viper-cog/libcoral'
 alias pillar='cd ~/go/src/github.comcast.com/viper-cog/pillar'
 alias dock='eval "$(docker-machine env dev)"'
+
+HISTFILESIZE=10000000
 
 # best prompt ... ever
 BLACK="\[\033[0;30m\]"
