@@ -19,6 +19,7 @@ Plugin 'rking/ag.vim'
 Plugin 'benekastah/neomake'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-obsession'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
