@@ -27,8 +27,16 @@ alias ops='cd ~/go/src/github.comcast.com/viper-cog/coral-ops'
 alias libcoral='cd ~/go/src/github.comcast.com/viper-cog/libcoral'
 alias pillar='cd ~/go/src/github.comcast.com/viper-cog/pillar'
 alias dock='eval "$(docker-machine env dev)"'
+alias libmpegts='cd ~/go/src/github.comcast.com/viper-cog/libmpegts'
+alias codec='cd ~/go/src/github.comcast.com/viper-cog/codec'
 
-HISTFILESIZE=10000000
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=10000000                   # big big history
+export HISTFILESIZE=10000000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # best prompt ... ever
 BLACK="\[\033[0;30m\]"

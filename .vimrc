@@ -207,6 +207,7 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>gg <Plug>(go-import)
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
+au FileType go nmap <leader>gl <Plug>(go-metalinter)
 " Airline tab line
 let g:airline#extensions#tabline#enabled = 1
 :hi ColorColumn ctermbg=0 guibg=#eee8d5
