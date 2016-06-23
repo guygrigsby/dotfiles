@@ -35,19 +35,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
-
-"------------------------------------------------------------
-" Features {{{1
-"
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
 "
 " colorscheme slate
 colorscheme molokai
@@ -56,40 +43,16 @@ colorscheme molokai
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 
+
 " Enable syntax highlighting
 syntax on
 
 " Autoload files when changed
 set autoread
+" save on buffer change
+set autowriteall
 
-
-"------------------------------------------------------------
-" Must have options {{{1
-"
-" These are highly recommended options.
-
-" Vim with default settings does not allow easy switching between multiple files
-" in the same editor window. Users can use multiple split windows or multiple
-" tab pages to edit multiple files, but it is still best to enable an option to
-" allow easier switching between files.
-"
-" One such option is the 'hidden' option, which allows you to re-use the same
-" window and switch from an unsaved buffer without saving it first. Also allows
-" you to keep an undo history for multiple files when re-using the same window
-" in this way. Note that using persistent undo also lets you undo in multiple
-" files even in the same window, but is less efficient and is actually designed
-" for keeping undo history after closing Vim entirely. Vim will complain if you
-" try to quit without saving, and swap files will keep you safe if your computer
-" crashes.
-set hidden
-
-" Note that not everyone likes working this way (with the hidden option).
-" Alternatives include using tabs or split windows instead of re-using the same
-" window as mentioned above, and/or either of the following options:
-" set confirm
-" set autowriteall
-
-" Better command-line completion
+" Shows the autocomplete menu above tab-bar
 set wildmenu
 
 " Show partial commands in the last line of the screen
@@ -98,21 +61,6 @@ set showcmd
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
 set hlsearch
-
-" Modelines have historically been a source of security vulnerabilities. As
-" such, it may be a good idea to disable them and use the securemodelines
-" script, <http://www.vim.org/scripts/script.php?script_id=1876>.
-" set nomodeline
-
-
-"------------------------------------------------------------
-" Usability options {{{1
-"
-" These are options that users frequently set in their .vimrc. Some of them
-" change Vim's behaviour in ways which deviate from the true Vi way, but
-" which are considered to add usability. Which, if any, of these options to
-" use is very much a personal preference, but they are harmless.
-
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
@@ -154,23 +102,11 @@ set mouse=v
 " "press <Enter> to continue"
 set cmdheight=2
 
-" Display line numbers on the left
 set number
 
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=0
-
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
-
-
-"------------------------------------------------------------
-" Indentation options {{{1
-"
-" Indentation settings according to personal preference.
-
-" Indentation settings for using 2 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
+ 
 set shiftwidth=8
 set softtabstop=8
 set expandtab
@@ -242,23 +178,17 @@ let g:tagbar_type_go = {
 "
 " Useful mappings
 
-" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
-" which is the default
-map Y y$
-
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
         nnoremap <C-L> :nohl<CR><C-L>
-
-" Map \- and \+ to resize window
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " neovim
 if has('nvim')
         " neovim map <ESC> to exit insert mode in terminal
         tnoremap <Esc> <C-\><C-n>
 endif
+
+set diffopt+=vertical
 
 " VimGo
 " For running goimports on save
