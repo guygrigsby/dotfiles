@@ -20,6 +20,8 @@ Plugin 'benekastah/neomake'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-obsession'
+Plugin 'rizzatti/dash.vim'
+Plugin 'avakhov/vim-yaml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -163,6 +165,9 @@ set notimeout ttimeout ttimeoutlen=0
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
+"yank to system clipboard
+set clipboard=unnamed
+
 
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -248,17 +253,29 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-        nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <C-L> :nohl<CR><C-L>
 
 " Map \- and \+ to resize window
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
-" neovim
-if has('nvim')
-        " neovim map <ESC> to exit insert mode in terminal
-        tnoremap <Esc> <C-\><C-n>
-endif
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  elseif l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  endif
+endfunction
+
+" Fugitive 
+" open grep in quickfix window
+" autocmd QuickFixCmdPost *grep* cwindow
+" open log in quickfix window
+" autocmd QuickFixCmdPost *log* cwindow
+
 
 " VimGo
 " For running goimports on save
@@ -270,7 +287,7 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>db <Plug>(go-doc-browser-browser)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <leader>r <Plug>(go-run-split)
-au FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage).
 au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -278,15 +295,20 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>gg <Plug>(go-import)
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
 au FileType go nmap <leader>gl <Plug>(go-metalinter)
+au FileType json nmap <leader>f %!python -m json.tool
 " Airline tab line
 let g:airline#extensions#tabline#enabled = 1
 :hi ColorColumn ctermbg=0 guibg=#eee8d5
 let g:diminactive_use_colorcolumn = 1
 "let g:diminactive_use_syntax = 1
 " NO ARROWS
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 noremap Q <NOP>
 "------------------------------------------------------------

@@ -5,7 +5,7 @@ export GOPATH=/Users/ggrisb/go
 export PATH=$PATH:$HOME/scripts:$GOPATH/bin
 export HOMEBREW_GITHUB_API_TOKEN=2ffbd838625f647652f801bc1aac3e4335f376f2
 export GO15VENDOREXPERIMENT=1
-# set -o vi
+set -o vi
 
 alias jdk6='export JAVA_HOME=`/usr/libexec/java_home -v 1.6`'
 alias jdk7='export JAVA_HOME=`/usr/libexec/java_home -v 1.7`'
@@ -17,9 +17,6 @@ alias jdk8='export JAVA_HOME=`/usr/libexec/java_home -v 1.8`'
 alias ls='ls -G'
 alias ll='ls -lG'
 
-alias vim='nvim'
-#alias vi='vim'
-
 alias k='kubectl'
 
 alias coral='cd ~/go/src/github.comcast.com/viper-cog/coral'
@@ -29,8 +26,12 @@ alias pillar='cd ~/go/src/github.comcast.com/viper-cog/pillar'
 alias dock='eval "$(docker-machine env dev)"'
 alias libmpegts='cd ~/go/src/github.comcast.com/viper-cog/libmpegts'
 alias codec='cd ~/go/src/github.comcast.com/viper-cog/codec'
+alias vip='cd ~/go/src/github.comcast.com/viper-cog'
+alias gots='cd ~/go/src/github.com/comcast/gots'
+alias tmp='cd ~/go/src/tmp'
 
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+unset HISTFILESIZE
+export HISTCONTROL=ignoredups  # no duplicate entries
 export HISTSIZE=10000000                   # big big history
 export HISTFILESIZE=10000000               # big big history
 shopt -s histappend                      # append to history, don't overwrite it
@@ -57,7 +58,8 @@ YELLOW="\[\033[1;33m\]"
 WHITE="\[\033[1;37m\]"
 DEFAULT_COLOR="\[\033[00m\]"
 
-PS1="$PURPLE($DEFAULT_COLOR\u@\h$PURPLE)-($DEFAULT_COLOR\j$PURPLE)-($DEFAULT_COLOR\w$PURPLE)-($DEFAULT_COLOR\$(__git_ps1 "%s")$PURPLE)-> $DEFAULT_COLOR"
+#PS1="$PURPLE($DEFAULT_COLOR\u@\h$PURPLE)-($DEFAULT_COLOR\j$PURPLE)-($DEFAULT_COLOR\w$PURPLE)-($DEFAULT_COLOR\$(__git_ps1 "%s")$PURPLE)-> $DEFAULT_COLOR"
+PS1="\u@\h:\j:\w:\$(__git_ps1 "%s")"
 
 #PS1="\u$YELLOW@$DEFAULT_COLOR\h:$PURPLE\w $GREEN\$(__git_ps1)$DEFAULT_COLOR\$ "
 
