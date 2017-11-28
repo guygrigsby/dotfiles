@@ -51,9 +51,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git alias-tips)
+plugins=(git zsh-completions kubectl)
 
 source $ZSH/oh-my-zsh.sh
+
+source /Users/ggrisb/scripts/env.sh
 
 
 # User configuration
@@ -87,24 +90,29 @@ source $ZSH/oh-my-zsh.sh
 #
 #source ~/.bash_mods/git-completion.bash
 #source ~/.bash_mods/git-prompt.sh
+#
+#
 
 export GOPATH=/Users/ggrisb/go
-export PATH=$PATH:$HOME/scripts:$GOPATH/bin:/usr/local/bin
+export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:
 export HOMEBREW_GITHUB_API_TOKEN=2ffbd838625f647652f801bc1aac3e4335f376f2
 export GO15VENDOREXPERIMENT=1
 set -o vi
+
+
+bindkey '^[[Z' reverse-menu-complete
 
 alias jdk6='export JAVA_HOME=`/usr/libexec/java_home -v 1.6`'
 alias jdk7='export JAVA_HOME=`/usr/libexec/java_home -v 1.7`'
 alias jdk8='export JAVA_HOME=`/usr/libexec/java_home -v 1.8`'
 
-#start the docker daemon
-#eval "$(docker-machine env default)"
 
 alias ls='ls -G'
 alias ll='ls -lG'
 
 alias k='kubectl'
+alias kp='kubectl get po'
+alias kl='kubectl logs -f'
 
 alias coral='cd ~/go/src/github.comcast.com/viper-cog/coral'
 alias ops='cd ~/go/src/github.comcast.com/viper-cog/coral-ops'
@@ -114,8 +122,12 @@ alias dock='eval "$(docker-machine env dev)"'
 alias libmpegts='cd ~/go/src/github.comcast.com/viper-cog/libmpegts'
 alias codec='cd ~/go/src/github.comcast.com/viper-cog/codec'
 alias vip='cd ~/go/src/github.comcast.com/viper-cog'
-alias gots='cd ~/go/src/github.com/comcast/gots'
+alias gots='cd ~/go/src/github.com/Comcast/gots'
 alias tmp='cd ~/go/src/tmp'
+alias dev='ssh guy@hydra'
+alias helm='helm --tiller-namespace=coral'
+
+alias gg='cd ~/go/src/github.comcast.com/ggrigs200'
 
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

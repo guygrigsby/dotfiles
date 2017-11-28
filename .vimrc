@@ -22,6 +22,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-obsession'
 Plugin 'rizzatti/dash.vim'
 Plugin 'avakhov/vim-yaml'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,6 +50,9 @@ set nocompatible
 
 " Enable syntax highlighting
 syntax on
+
+" spellcheck
+set spell spelllang=en_us
 
 " Autoload files when changed
 set autoread
@@ -98,7 +103,7 @@ set visualbell
 " is unset, this does nothing.
 set t_vb=
 
-set mouse=v
+set mouse=a
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
@@ -113,7 +118,7 @@ set notimeout ttimeout ttimeoutlen=0
 set pastetoggle=<F11>
 
 "yank to system clipboard
-set clipboard=unnamed
+set clipboard+=unnamed
 
 
 "------------------------------------------------------------
@@ -225,12 +230,13 @@ endfunction
 let g:go_fmt_command ="goimports"
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
+
+" autocmd BufWritePre *.go call go#lint#Errcheck()
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>db <Plug>(go-doc-browser-browser)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <leader>r <Plug>(go-run-split)
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage).
 au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -238,7 +244,11 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>gg <Plug>(go-import)
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
 au FileType go nmap <leader>gl <Plug>(go-metalinter)
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
 au FileType json nmap <leader>f %!python -m json.tool
+au FileType python nmap <leader>r :! clear && python % <CR>
 " Airline tab line
 let g:airline#extensions#tabline#enabled = 1
 :hi ColorColumn ctermbg=0 guibg=#eee8d5
@@ -249,5 +259,5 @@ nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
-noremap Q <NOP>
+nnoremap Q <NOP>
 "------------------------------------------------------------
