@@ -57,6 +57,9 @@ plugins=(git zsh-completions kubectl)
 source $ZSH/oh-my-zsh.sh
 
 source /Users/ggrisb/scripts/env.sh
+# kubectl context prompt
+source /usr/local/Cellar/zsh-kubectl-prompt/v1.0.0/etc/zsh-kubectl-prompt/kubectl.zsh
+RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
 # User configuration
@@ -111,15 +114,13 @@ alias ls='ls -G'
 alias ll='ls -lG'
 
 alias k='kubectl'
-alias kp='kubectl get po'
+alias kp='kubectl get po -o wide --show-labels'
 alias kl='kubectl logs -f'
 
 alias coral='cd ~/go/src/github.comcast.com/viper-cog/coral'
 alias ops='cd ~/go/src/github.comcast.com/viper-cog/coral-ops'
-alias libcoral='cd ~/go/src/github.comcast.com/viper-cog/libcoral'
+alias image='cd ~/go/src/github.comcast.com/viper-cog/image'
 alias pillar='cd ~/go/src/github.comcast.com/viper-cog/pillar'
-alias dock='eval "$(docker-machine env dev)"'
-alias libmpegts='cd ~/go/src/github.comcast.com/viper-cog/libmpegts'
 alias codec='cd ~/go/src/github.comcast.com/viper-cog/codec'
 alias vip='cd ~/go/src/github.comcast.com/viper-cog'
 alias gots='cd ~/go/src/github.com/Comcast/gots'
@@ -133,5 +134,12 @@ alias gg='cd ~/go/src/github.comcast.com/ggrigs200'
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 #PS1="\u@\h:\j:\w:\$(__git_ps1 "%s")"
+#
 
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
