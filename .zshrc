@@ -51,14 +51,22 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git alias-tips)
-plugins=(git zsh-completions kubectl)
+plugins=(
+  git 
+  alias-tips
+  osx
+  make
+  zsh-completions
+)
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/templates/zshrc.zsh-template
 
 source /Users/ggrisb/scripts/env.sh
 # kubectl context prompt
 source /usr/local/Cellar/zsh-kubectl-prompt/v1.0.0/etc/zsh-kubectl-prompt/kubectl.zsh
+
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
@@ -95,12 +103,13 @@ RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 #source ~/.bash_mods/git-prompt.sh
 #
 #
-
+export EDITOR=/usr/local/bin/vim
 export GOPATH=/Users/ggrisb/go
 export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:
 export HOMEBREW_GITHUB_API_TOKEN=2ffbd838625f647652f801bc1aac3e4335f376f2
 export GO15VENDOREXPERIMENT=1
-set -o vi
+# vi mode
+bindkey -v
 
 
 bindkey '^[[Z' reverse-menu-complete
@@ -114,7 +123,8 @@ alias ls='ls -G'
 alias ll='ls -lG'
 
 alias k='kubectl'
-alias kp='kubectl get po -o wide --show-labels'
+alias kp='kubectl get po -o wide'
+alias kn='kubectl get no'
 alias kl='kubectl logs -f'
 
 alias coral='cd ~/go/src/github.comcast.com/viper-cog/coral'
@@ -123,13 +133,26 @@ alias image='cd ~/go/src/github.comcast.com/viper-cog/image'
 alias pillar='cd ~/go/src/github.comcast.com/viper-cog/pillar'
 alias codec='cd ~/go/src/github.comcast.com/viper-cog/codec'
 alias vip='cd ~/go/src/github.comcast.com/viper-cog'
+alias nitro='cd ~/go/src/github.comcast.com/nitro/go-nitro'
+alias nhelm='helm --tiller-namespace nitro'
 alias gots='cd ~/go/src/github.com/Comcast/gots'
 alias tmp='cd ~/go/src/tmp'
-alias dev='ssh guy@hydra'
-alias helm='helm --tiller-namespace=coral'
+alias s8='cd ~/go/src/github.comcast.com/viper-cog/mod_super8'
 
 alias gg='cd ~/go/src/github.comcast.com/ggrigs200'
 
+alias live=live.sh
+
+alias stage='kubectl --context=stage'
+alias scpoto='kubectl --context=potomac'
+alias scnl='kubectl --context=northlake'
+alias po='kubectl --context=rdei-potomac'
+alias nl='kubectl --context=rdei-northlake'
+alias qa='kubectl --context=rdei-canary'
+
+alias dev='ssh guy@10.168.141.69'
+# Create a UUID
+alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
@@ -143,3 +166,6 @@ if [ -f '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/path.zsh.inc' ]; then source 
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
+
+# added by travis gem
+[ -f /Users/ggrisb/.travis/travis.sh ] && source /Users/ggrisb/.travis/travis.sh

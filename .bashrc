@@ -70,3 +70,6 @@ PS1="\u@\h:\j:\w:\$(__git_ps1 "%s")"
 #    else
 #                echo -en '$LIGHT_RED--($LIGHT_CYAN\u$YELLOW@$LIGHT_CYAN\h$LIGHT_RED)--($YELLOW\w$LIGHT_RED)--($PURPLE'; __git_ps1 "%s"; echo -n '$LIGHT_RED)-- :         (\n--\$$DEFAULT_COLOR ';
 #                fi; \`"
+
+# added by travis gem
+[ -f /Users/ggrisb/.travis/travis.sh ] && source /Users/ggrisb/.travis/travis.sh

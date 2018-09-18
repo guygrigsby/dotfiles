@@ -14,7 +14,7 @@ Plugin 'bling/vim-airline'
 Plugin 'blueyed/vim-diminactive'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'guygrigsby/auto-pairs'
 Plugin 'rking/ag.vim'
 Plugin 'benekastah/neomake'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
@@ -42,6 +42,9 @@ filetype plugin indent on    " required
 "
 " colorscheme slate
 colorscheme molokai
+
+" Turn of swap files
+set noswapfile
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -199,6 +202,9 @@ let g:tagbar_type_go = {
 " Mappings {{{1
 "
 " Useful mappings
+"
+" AutoPairs
+let g:AutoPairsFlyMode = 0
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -230,6 +236,9 @@ endfunction
 let g:go_fmt_command ="goimports"
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
+
+" Notes dir
+:let g:notes_directories = ['~/Google Drive/notes']
 
 " autocmd BufWritePre *.go call go#lint#Errcheck()
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
