@@ -138,6 +138,10 @@ alias nhelm='helm --tiller-namespace nitro'
 alias gots='cd ~/go/src/github.com/Comcast/gots'
 alias tmp='cd ~/go/src/tmp'
 alias s8='cd ~/go/src/github.comcast.com/viper-cog/mod_super8'
+alias veg='cd ~/go/src/github.comcast.com/viper-veg'
+alias lane='cd ~/go/src/github.comcast.com/viper-veg/kube-configs'
+alias core='cd ~/go/src/github.comcast.com/mpcore/mpcore'
+
 
 alias gg='cd ~/go/src/github.comcast.com/ggrigs200'
 
@@ -151,6 +155,8 @@ alias nl='kubectl --context=rdei-northlake'
 alias qa='kubectl --context=rdei-canary'
 
 alias dev='ssh guy@10.168.141.69'
+
+alias eclim='/Users/ggrisb/eclipse/java-2018-09/Eclipse.app/Contents/Eclipse/eclimd'
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 # Save and reload the history after each command finishes

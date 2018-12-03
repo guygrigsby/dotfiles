@@ -17,13 +17,13 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'guygrigsby/auto-pairs'
 Plugin 'rking/ag.vim'
 Plugin 'benekastah/neomake'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-obsession'
 Plugin 'rizzatti/dash.vim'
 Plugin 'avakhov/vim-yaml'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -122,6 +122,8 @@ set pastetoggle=<F11>
 
 "yank to system clipboard
 set clipboard+=unnamed
+" turn off preview pane for autocomplete
+set completeopt-=preview
 
 
 "------------------------------------------------------------
