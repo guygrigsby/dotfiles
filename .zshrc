@@ -103,6 +103,12 @@ RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 #source ~/.bash_mods/git-prompt.sh
 #
 #
+#
+#
+#Load NVM - node version manager
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 export EDITOR=/usr/local/bin/vim
 export GOPATH=/Users/ggrisb/go
 export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:
@@ -141,6 +147,7 @@ alias s8='cd ~/go/src/github.comcast.com/viper-cog/mod_super8'
 alias veg='cd ~/go/src/github.comcast.com/viper-veg'
 alias lane='cd ~/go/src/github.comcast.com/viper-veg/kube-configs'
 alias core='cd ~/go/src/github.comcast.com/mpcore/mpcore'
+alias norlin='cd ~/go/src/github.comcast.com/viper-veg/norlin'
 
 
 alias gg='cd ~/go/src/github.comcast.com/ggrigs200'
@@ -159,6 +166,7 @@ alias dev='ssh guy@10.168.141.69'
 alias eclim='/Users/ggrisb/eclipse/java-2018-09/Eclipse.app/Contents/Eclipse/eclimd'
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
+alias awslogin="/Users/ggrisb/go/src/github.comcast.com/dh-pass-infra/aws-adfs-auth/bin/aws_adfs_auth"
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 

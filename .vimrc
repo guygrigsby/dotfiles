@@ -24,6 +24,13 @@ Plugin 'avakhov/vim-yaml'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'xavierchow/vim-swagger-preview'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'elzr/vim-json'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'prettier/vim-prettier'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -241,19 +248,20 @@ let g:go_term_mode = "split"
 
 " Notes dir
 :let g:notes_directories = ['~/Google Drive/notes']
+" js
 
 " autocmd BufWritePre *.go call go#lint#Errcheck()
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>db <Plug>(go-doc-browser-browser)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <leader>r <Plug>(go-run-split)
+au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage).
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>gg <Plug>(go-import)
-au FileType go nmap <leader>rt <Plug>(go-run-tab)
+"au FileType go nmap <leader>rt <Plug>(go-run-tab)
 au FileType go nmap <leader>gl <Plug>(go-metalinter)
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
