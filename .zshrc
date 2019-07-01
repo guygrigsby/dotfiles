@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ggrisb/.oh-my-zsh
+export ZSH=/Users/ggrigs200/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -53,19 +53,17 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git 
-  alias-tips
   osx
-  make
   zsh-completions
+  zsh-kubectl-prompt
 )
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/templates/zshrc.zsh-template
 
-source /Users/ggrisb/scripts/env.sh
-# kubectl context prompt
-source /usr/local/Cellar/zsh-kubectl-prompt/v1.0.0/etc/zsh-kubectl-prompt/kubectl.zsh
+source /Users/ggrigs200/scripts/env.sh
+source /Users/ggrigs200/scripts/.secrets
 
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
@@ -110,9 +108,8 @@ export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export EDITOR=/usr/local/bin/vim
-export GOPATH=/Users/ggrisb/go
+export GOPATH=/Users/ggrigs200/go
 export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:
-export HOMEBREW_GITHUB_API_TOKEN=2ffbd838625f647652f801bc1aac3e4335f376f2
 export GO15VENDOREXPERIMENT=1
 # vi mode
 bindkey -v
@@ -148,6 +145,7 @@ alias veg='cd ~/go/src/github.comcast.com/viper-veg'
 alias lane='cd ~/go/src/github.comcast.com/viper-veg/kube-configs'
 alias core='cd ~/go/src/github.comcast.com/mpcore/mpcore'
 alias norlin='cd ~/go/src/github.comcast.com/viper-veg/norlin'
+alias onecloud='cd ~/go/src/code.comcast.com/onecloud'
 
 
 alias gg='cd ~/go/src/github.comcast.com/ggrigs200'
@@ -163,10 +161,10 @@ alias qa='kubectl --context=rdei-canary'
 
 alias dev='ssh guy@10.168.141.69'
 
-alias eclim='/Users/ggrisb/eclipse/java-2018-09/Eclipse.app/Contents/Eclipse/eclimd'
+alias eclim='/Users/ggrigs200/eclipse/java-2018-09/Eclipse.app/Contents/Eclipse/eclimd'
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
-alias awslogin="/Users/ggrisb/go/src/github.comcast.com/dh-pass-infra/aws-adfs-auth/bin/aws_adfs_auth"
+alias awslogin="/Users/ggrigs200/go/src/github.comcast.com/dh-pass-infra/aws-adfs-auth/bin/aws_adfs_auth"
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
@@ -176,10 +174,10 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/ggrigs200/tmp/gcloud/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ggrigs200/tmp/gcloud/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ggrisb/tmp/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/ggrigs200/tmp/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ggrigs200/tmp/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
 
 # added by travis gem
-[ -f /Users/ggrisb/.travis/travis.sh ] && source /Users/ggrisb/.travis/travis.sh
+[ -f /Users/ggrigs200/.travis/travis.sh ] && source /Users/ggrigs200/.travis/travis.sh

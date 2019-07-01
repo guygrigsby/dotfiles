@@ -11,7 +11,6 @@ Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'blueyed/vim-diminactive'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'guygrigsby/auto-pairs'
@@ -31,6 +30,8 @@ Plugin 'elzr/vim-json'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'prettier/vim-prettier'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'seeamkhan/robotframework-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -265,18 +266,33 @@ au FileType go nmap <Leader>gg <Plug>(go-import)
 au FileType go nmap <leader>gl <Plug>(go-metalinter)
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-
+" Python
 au FileType json nmap <leader>f %!python -m json.tool
 au FileType python nmap <leader>r :! clear && python % <CR>
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+
+
+au FileType robot nmap <leader>r :! clear && robot % <CR>
+
 " Airline tab line
 let g:airline#extensions#tabline#enabled = 1
 :hi ColorColumn ctermbg=0 guibg=#eee8d5
-let g:diminactive_use_colorcolumn = 1
-"let g:diminactive_use_syntax = 1
+"
 " NO ARROWS
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 nnoremap Q <NOP>
+" typescript
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 "------------------------------------------------------------
