@@ -63,7 +63,7 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH/templates/zshrc.zsh-template
 
 source /Users/ggrigs200/scripts/env.sh
-source /Users/ggrigs200/scripts/.secrets
+source /Users/ggrigs200/scripts/secrets.bash
 
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
@@ -165,6 +165,7 @@ alias eclim='/Users/ggrigs200/eclipse/java-2018-09/Eclipse.app/Contents/Eclipse/
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 alias awslogin="/Users/ggrigs200/go/src/github.comcast.com/dh-pass-infra/aws-adfs-auth/bin/aws_adfs_auth"
+alias totp='node /Users/ggrigs200/go/src/code.comcast.com/onecloud/puppeteer-ocp-login/node totp.js'
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
