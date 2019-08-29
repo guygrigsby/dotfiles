@@ -62,8 +62,8 @@ autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 source $ZSH/templates/zshrc.zsh-template
 
-#source /Users/ggrigs200/scripts/env.sh
-#source /Users/ggrigs200/scripts/secrets.bash
+if [ -f "$HOME/scripts/env.sh" ]; then source $HOME/scripts/env.sh; fi
+if [ -f "$HOME/scripts/secrets.sh" ]; then source $HOME/scripts/secrets.sh; fi
 
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
@@ -119,11 +119,6 @@ bindkey -v
 
 bindkey '^[[Z' reverse-menu-complete
 
-alias jdk6='export JAVA_HOME=`/usr/libexec/java_home -v 1.6`'
-alias jdk7='export JAVA_HOME=`/usr/libexec/java_home -v 1.7`'
-alias jdk8='export JAVA_HOME=`/usr/libexec/java_home -v 1.8`'
-
-
 alias ls='ls -G'
 alias ll='ls -lG'
 
@@ -132,42 +127,14 @@ alias kp='kubectl get po -o wide'
 alias kn='kubectl get no'
 alias kl='kubectl logs -f'
 
-alias coral='cd ~/go/src/github.comcast.com/viper-cog/coral'
-alias ops='cd ~/go/src/github.comcast.com/viper-cog/coral-ops'
-alias image='cd ~/go/src/github.comcast.com/viper-cog/image'
-alias pillar='cd ~/go/src/github.comcast.com/viper-cog/pillar'
-alias codec='cd ~/go/src/github.comcast.com/viper-cog/codec'
-alias vip='cd ~/go/src/github.comcast.com/viper-cog'
-alias nitro='cd ~/go/src/github.comcast.com/nitro/go-nitro'
-alias nhelm='helm --tiller-namespace nitro'
-alias gots='cd ~/go/src/github.com/Comcast/gots'
 alias tmp='cd ~/go/src/tmp'
-alias s8='cd ~/go/src/github.comcast.com/viper-cog/mod_super8'
-alias veg='cd ~/go/src/github.comcast.com/viper-veg'
-alias lane='cd ~/go/src/github.comcast.com/viper-veg/kube-configs'
-alias core='cd ~/go/src/github.comcast.com/mpcore/mpcore'
-alias norlin='cd ~/go/src/github.comcast.com/viper-veg/norlin'
-alias onecloud='cd ~/go/src/code.comcast.com/onecloud'
 
-
-alias gg='cd ~/go/src/github.comcast.com/ggrigs200'
-
-alias live=live.sh
-
-alias stage='kubectl --context=stage'
-alias scpoto='kubectl --context=potomac'
-alias scnl='kubectl --context=northlake'
-alias po='kubectl --context=rdei-potomac'
-alias nl='kubectl --context=rdei-northlake'
-alias qa='kubectl --context=rdei-canary'
-
-alias dev='ssh guy@10.168.141.69'
+alias gg='cd ~/go/src/github.com/guygrigsby'
+alias gome=' cd ~/go/src'
 
 alias eclim='/Users/ggrigs200/eclipse/java-2018-09/Eclipse.app/Contents/Eclipse/eclimd'
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
-alias awslogin="/Users/ggrigs200/go/src/github.comcast.com/dh-pass-infra/aws-adfs-auth/bin/aws_adfs_auth"
-alias totp='node /Users/ggrigs200/go/src/code.comcast.com/onecloud/puppeteer-ocp-login/node totp.js'
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
