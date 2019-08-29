@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ggrigs200/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -55,15 +55,15 @@ plugins=(
   git 
   osx
   zsh-completions
-  zsh-kubectl-prompt
+  #zsh-kubectl-prompt
 )
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/templates/zshrc.zsh-template
 
-source /Users/ggrigs200/scripts/env.sh
-source /Users/ggrigs200/scripts/secrets.bash
+#source /Users/ggrigs200/scripts/env.sh
+#source /Users/ggrigs200/scripts/secrets.bash
 
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
@@ -108,9 +108,11 @@ export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export EDITOR=/usr/local/bin/vim
-export GOPATH=/Users/ggrigs200/go
+export GOPATH=$HOME/go
 export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:
+export PATH=$PATH:/usr/local/go/bin
 export GO15VENDOREXPERIMENT=1
+export GO111MODULE=on
 # vi mode
 bindkey -v
 
