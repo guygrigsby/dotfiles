@@ -62,8 +62,10 @@ autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 source $ZSH/templates/zshrc.zsh-template
 
+
 if [ -f "$HOME/scripts/env.sh" ]; then source $HOME/scripts/env.sh; fi
 if [ -f "$HOME/scripts/secrets.sh" ]; then source $HOME/scripts/secrets.sh; fi
+if [ -f "$HOME/scripts/funcs.sh" ]; then source $HOME/scripts/funcs.sh; fi
 
 RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
