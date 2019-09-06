@@ -11,6 +11,7 @@ Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'guygrigsby/auto-pairs'
@@ -47,6 +48,7 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+set encoding=utf-8
 "
 " colorscheme slate
 colorscheme molokai
@@ -284,6 +286,29 @@ au FileType robot nmap <leader>r :! clear && robot % <CR>
 
 " Airline tab line
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='dark'
+let g:airline_solarized_bg='dark'
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
 :hi ColorColumn ctermbg=0 guibg=#eee8d5
 "
 " NO ARROWS
