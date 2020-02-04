@@ -28,11 +28,16 @@ Plugin 'xavierchow/vim-swagger-preview'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'prettier/vim-prettier'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'seeamkhan/robotframework-vim'
+Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'MaxMEllon/vim-jsx-pretty'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'cespare/vim-toml'
+Plugin 'rust-lang/rust.vim'
+Plugin 'mattn/webapi-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -134,6 +139,9 @@ set pastetoggle=<F11>
 set clipboard+=unnamed
 " turn off preview pane for autocomplete
 set completeopt-=preview
+" autoformat js
+" autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+
 
 
 "------------------------------------------------------------
@@ -218,6 +226,9 @@ let g:tagbar_type_go = {
 " AutoPairs
 let g:AutoPairsFlyMode = 0
 
+" Prevent Fugitive conflicts with editor config
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
+
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
@@ -248,6 +259,8 @@ endfunction
 let g:go_fmt_command ="goimports"
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
+let g:go_test_timeout = '600s'
+let g:go_build_tags = "integration,gostar,example,example"
 
 " Notes dir
 :let g:notes_directories = ['~/Google Drive/notes']
@@ -259,13 +272,14 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>db <Plug>(go-doc-browser-browser)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage).
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>gg <Plug>(go-import)
 "au FileType go nmap <leader>rt <Plug>(go-run-tab)
 au FileType go nmap <leader>gl <Plug>(go-metalinter)
+au FileType go nmap <leader>tt <Plug>(go-test)
+au FileType go nmap <leader>t <Plug>(go-test-func)
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 " Python
@@ -323,3 +337,9 @@ let g:typescript_compiler_options = ''
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 "------------------------------------------------------------
+"
+" rust ----------------------------
+" {{{
+let g:rustfmt_autosave = 1
+au FileType rust nmap <leader>r (go-test-func)
+" }}}
