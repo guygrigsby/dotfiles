@@ -36,7 +36,6 @@ Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'cespare/vim-toml'
-Plugin 'rust-lang/rust.vim'
 Plugin 'mattn/webapi-vim'
 
 " All of your Plugins must be added before the following line
@@ -73,9 +72,9 @@ syntax on
 set spell spelllang=en_us
 
 " Autoload files when changed
-set autoread
+" set autoread
 " save on buffer change
-set autowriteall
+" set autowriteall
 
 " Shows the autocomplete menu above tab-bar
 set wildmenu
@@ -284,7 +283,7 @@ au FileType go nmap <leader>t <Plug>(go-test-func)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 " Python
 au FileType json nmap <leader>f %!python -m json.tool
-au FileType python nmap <leader>r :! clear && python % <CR>
+au FileType python nmap <leader>r :! clear && python3 % <CR>
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
 let g:ycm_extra_conf_vim_data = [
@@ -331,15 +330,25 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 nnoremap Q <NOP>
-" typescript
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
 "------------------------------------------------------------
 "
 " rust ----------------------------
 " {{{
 let g:rustfmt_autosave = 1
-au FileType rust nmap <leader>r (go-test-func)
+" Let's define completion sources for rust
+if executable("rls")
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': { server_info->['rls']},
+        \ 'whitelist': ['rust'],
+    \ })
+endif
+" have racer as a complete soure
+if executable('racer')
+    autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#racer#get_source_options())
+endif
+au FileType rust nmap <leader>gd <Plug>(rust-def)
+au FileType rust nmap <leader>gs <Plug>(rust-def-split)
+au FileType rust nmap <leader>dv <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>K <Plug>(rust-doc)
 " }}}

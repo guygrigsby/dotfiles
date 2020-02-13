@@ -68,52 +68,18 @@ if [ -f "$HOME/scripts/secrets.sh" ]; then source $HOME/scripts/secrets.sh; fi
 if [ -f "$HOME/scripts/funcs.sh" ]; then source $HOME/scripts/funcs.sh; fi
 # Rust
 if [ -f "$HOME/.cargo/env" ]; then source $HOME/.cargo/env; fi
+# Python pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+
 
 #RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 RPROMPT='%{$fg[blue]%}%{$reset_color%}'
 PROMPT=$PROMPT'$(kube_ps1) '
 
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-#source ~/.bash_mods/git-completion.bash
-#source ~/.bash_mods/git-prompt.sh
-#
-#
-#
-#
-#Load NVM - node version manager
-export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-export EDITOR=/usr/local/bin/vim
+export EDITOR=vim
 export GOPATH=$HOME/go
 export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:
 export PATH=$PATH:/usr/local/go/bin
@@ -122,6 +88,7 @@ export PATH=$PATH:$HOME/lib
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export GO15VENDOREXPERIMENT=1
 export GO111MODULE=on
+export ORACLE_HOME=$HOME/lib/
 # vi mode
 bindkey -v
 
@@ -148,9 +115,6 @@ alias eclim='/Users/ggrigs200/eclipse/java-2018-09/Eclipse.app/Contents/Eclipse/
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 # Save and reload the history after each command finishes
-# Python
-alias pip=pip3
-alias python=python3
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 eval $(thefuck --alias)
