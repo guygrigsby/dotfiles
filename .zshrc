@@ -29,7 +29,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -55,7 +55,7 @@ plugins=(
   git 
   osx
   zsh-completions
-  #zsh-kubectl-prompt
+  kube-ps1
 )
 autoload -U compinit && compinit
 
@@ -66,60 +66,37 @@ source $ZSH/templates/zshrc.zsh-template
 if [ -f "$HOME/scripts/env.sh" ]; then source $HOME/scripts/env.sh; fi
 if [ -f "$HOME/scripts/secrets.sh" ]; then source $HOME/scripts/secrets.sh; fi
 if [ -f "$HOME/scripts/funcs.sh" ]; then source $HOME/scripts/funcs.sh; fi
+# Rust
+if [ -f "$HOME/.cargo/env" ]; then source $HOME/.cargo/env; fi
+# Python pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
-# User configuration
+#RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+RPROMPT='%{$fg[blue]%}%{$reset_color%}'
+PROMPT=$PROMPT'$(kube_ps1) '
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-#source ~/.bash_mods/git-completion.bash
-#source ~/.bash_mods/git-prompt.sh
-#
-#
-#
-#
-#Load NVM - node version manager
-export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-export EDITOR=/usr/local/bin/vim
+export EDITOR=vim
 export GOPATH=$HOME/go
 export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/lib
+# gnu sed
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export GO15VENDOREXPERIMENT=1
 export GO111MODULE=on
+export ORACLE_HOME=$HOME/lib/
 # vi mode
 bindkey -v
 
 
 bindkey '^[[Z' reverse-menu-complete
+
+alias gclum='git checkout master && git pull upstream master'
+alias rup='git remote rename origin upstream'
 
 alias ls='ls -G'
 alias ll='ls -lG'
@@ -140,16 +117,21 @@ alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pb
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+eval $(thefuck --alias)
+
 #PS1="\u@\h:\j:\w:\$(__git_ps1 "%s")"
 #
 
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ggrigs200/tmp/gcloud/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ggrigs200/tmp/gcloud/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/ggrigs200/tmp/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ggrigs200/tmp/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
-
 # added by travis gem
 [ -f /Users/ggrigs200/.travis/travis.sh ] && source /Users/ggrigs200/.travis/travis.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ggrigsby/y/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ggrigsby/y/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ggrigsby/y/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ggrigsby/y/google-cloud-sdk/completion.zsh.inc'; fi
