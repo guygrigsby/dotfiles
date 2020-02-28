@@ -4,12 +4,15 @@
 ln -s ./.vimrc $HOME
 ln -s ./.zshrc $HOME
 ln -s ./ftplugin $HOME/.vim
+ln -s ./.gitignore $HOME
+git config --global core.excludesfile '~/.gitignore'
 
 # Env stuff
 # sourced at this location
 git clone git@github.com:guygrigsby/scripts.git $HOME/scripts
 # Basics
 git clone git@github.com:guygrigsby/necessities.git $HOME/necessities
+
 
 
 # Go

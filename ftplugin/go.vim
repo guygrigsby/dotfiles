@@ -27,6 +27,7 @@ nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 let g:go_fmt_command ="goimports"
 let g:go_term_enabled = 1
 let g:go_term_mode = "split"
-
+let g:go_test_timeout = '600s'
+let g:go_build_tags = "integration,gostar,example,example"
 " }}}
 

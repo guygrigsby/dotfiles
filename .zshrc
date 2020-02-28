@@ -75,13 +75,11 @@ fi
 
 
 
-#RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
-RPROMPT='%{$fg[blue]%}%{$reset_color%}'
-PROMPT=$PROMPT'$(kube_ps1) '
+#PROMPT=$PROMPT'$(kube_ps1) '
 
 export EDITOR=vim
 export GOPATH=$HOME/go
-export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:
+export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:$HOME/Library/Python/3.7/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/lib
 # gnu sed
