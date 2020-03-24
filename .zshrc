@@ -29,7 +29,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -53,15 +53,16 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git 
-  osx
   zsh-completions
-  kube-ps1
+#  kube-ps1
+  gcloud
+  helm
 )
-autoload -U compinit && compinit
+autoload -U compinit -X && compinit -X
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/templates/zshrc.zsh-template
-
+#source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 
 if [ -f "$HOME/scripts/env.sh" ]; then source $HOME/scripts/env.sh; fi
 if [ -f "$HOME/scripts/secrets.sh" ]; then source $HOME/scripts/secrets.sh; fi
@@ -73,24 +74,16 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-
-
-#PROMPT=$PROMPT'$(kube_ps1) '
-
 export EDITOR=vim
 export GOPATH=$HOME/go
-export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin:$HOME/Library/Python/3.7/bin
+export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/lib
-# gnu sed
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export GO15VENDOREXPERIMENT=1
 export GO111MODULE=on
 export ORACLE_HOME=$HOME/lib/
 # vi mode
 bindkey -v
-
-
 bindkey '^[[Z' reverse-menu-complete
 
 alias gclum='git checkout master && git pull upstream master'
@@ -109,18 +102,12 @@ alias tmp='cd ~/go/src/tmp'
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
-alias eclim='/Users/ggrigs200/eclipse/java-2018-09/Eclipse.app/Contents/Eclipse/eclimd'
+#PROMPT='$(kube_ps1)'$PROMPT
+
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
-eval $(thefuck --alias)
-
-#PS1="\u@\h:\j:\w:\$(__git_ps1 "%s")"
-#
-
-
 
 # added by travis gem
 [ -f /Users/ggrigs200/.travis/travis.sh ] && source /Users/ggrigs200/.travis/travis.sh
@@ -129,7 +116,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ggrigsby/y/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ggrigsby/y/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/guy/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/guy/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ggrigsby/y/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ggrigsby/y/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/guy/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/guy/google-cloud-sdk/completion.zsh.inc'; fi

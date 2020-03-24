@@ -1,19 +1,17 @@
 #!/bin/bash
 
-#Dotfiles
-ln -s ./.vimrc $HOME
-ln -s ./.zshrc $HOME
-ln -s ./ftplugin $HOME/.vim
-ln -s ./.gitignore $HOME
-git config --global core.excludesfile '~/.gitignore'
+#Dotfiles this is where we are
+ln -s $HOME/dotfiles/.vimrc $HOME
+ln -s $HOME/dotfiles/.zshrc $HOME
+ln -s $HOME/dotfiles/ftplugin $HOME/.vim
+ln -s $HOME/dotfiles/.gitignore $HOME
+ln -s $HOME/dotfiles/.gitconfig $HOME
 
 # Env stuff
 # sourced at this location
 git clone git@github.com:guygrigsby/scripts.git $HOME/scripts
 # Basics
 git clone git@github.com:guygrigsby/necessities.git $HOME/necessities
-
-
 
 # Go
 mkdir -p $HOME/go
