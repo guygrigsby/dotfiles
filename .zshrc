@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -63,10 +63,12 @@ autoload -U compinit -X && compinit -X
 source $ZSH/oh-my-zsh.sh
 source $ZSH/templates/zshrc.zsh-template
 #source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+#
+export SCRIPTS="$HOME/scripts"
 
-if [ -f "$HOME/scripts/env.sh" ]; then source $HOME/scripts/env.sh; fi
-if [ -f "$HOME/scripts/secrets.sh" ]; then source $HOME/scripts/secrets.sh; fi
-if [ -f "$HOME/scripts/funcs.sh" ]; then source $HOME/scripts/funcs.sh; fi
+if [ -f "$SCRIPTS/env.sh" ]; then source $SCRIPTS/env.sh; fi
+if [ -f "$SCRIPTS/secrets.sh" ]; then source $SCRIPTS/secrets.sh; fi
+if [ -f "$SCRIPTS/funcs.sh" ]; then source $SCRIPTS/funcs.sh; fi
 # Rust
 if [ -f "$HOME/.cargo/env" ]; then source $HOME/.cargo/env; fi
 # Python pyenv
@@ -76,17 +78,14 @@ fi
 
 export EDITOR=vim
 export GOPATH=$HOME/go
-export PATH=/usr/local/bin:$PATH:$HOME/scripts:$GOPATH/bin
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/lib
-export GO15VENDOREXPERIMENT=1
+export PATH=/usr/local/bin:$PATH:$SCRIPTS:$GOPATH/bin:/usr/local/go/bin:$HOME/lib
 export GO111MODULE=on
-export ORACLE_HOME=$HOME/lib/
 # vi mode
 bindkey -v
 bindkey '^[[Z' reverse-menu-complete
 
 alias gclum='git checkout master && git pull upstream master'
+alias gclom='git checkout master && git pull origin master'
 alias rup='git remote rename origin upstream'
 
 alias ls='ls -G'
@@ -101,6 +100,13 @@ alias tmp='cd ~/go/src/tmp'
 
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
+
+alias vrc='vim ~/.vimrc'
+alias zrc='vim ~/.zshrc'
+alias .z='. ~/.zshrc'
+alias .s=". $SCRIPTS/secrets.sh"
+alias .e=". $SCRIPTS/env.sh"
+alias .f=". $SCRIPTS/funcs.sh"
 
 #PROMPT='$(kube_ps1)'$PROMPT
 

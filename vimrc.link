@@ -1,41 +1,32 @@
-filetype off                  " required
-" Vundle --------------------------- {{{
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'fatih/vim-go'
-Plugin 'fatih/molokai'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'guygrigsby/auto-pairs'
-Plugin 'rking/ag.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-obsession'
-Plugin 'avakhov/vim-yaml'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'elzr/vim-json'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'cespare/vim-toml'
-Plugin 'mattn/webapi-vim'
-Plugin 'prettier/vim-prettier'
-Plugin 'rust-lang/rust.vim'
-Plugin 'ludovicchabant/vim-gutentags'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" Put your non-Plugin stuff after this line }}}
+call plug#begin('~/.vim/plugged')
+Plug 'VundleVim/Vundle.vim'
+Plug 'avakhov/vim-yaml'
+Plug 'bling/vim-airline'
+Plug 'cespare/vim-toml'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'fatih/molokai'
+Plug 'guygrigsby/auto-pairs'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'majutsushi/tagbar'
+Plug 'mattn/webapi-vim'
+Plug 'prettier/vim-prettier'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'rking/ag.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'Valloric/YouCompleteMe', { 'do' : '~/.vim/plugged/YouCompleteMe/install.py --clangd-completer --rust-completer --go-completer' }
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+call plug#end()
+filetype plugin indent on
 
 " AutoPairs
 let g:AutoPairsFlyMode = 0

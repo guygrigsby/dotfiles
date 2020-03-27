@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Dotfiles this is where we are
-ln -s $HOME/dotfiles/.vimrc $HOME
+ln -s $HOME/dotfiles/vimrc.link $HOME/.vimrc
 ln -s $HOME/dotfiles/.zshrc $HOME
 ln -s $HOME/dotfiles/ftplugin $HOME/.vim
 ln -s $HOME/dotfiles/.gitignore $HOME
