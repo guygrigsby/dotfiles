@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #Dotfiles this is where we are
-ln -s $HOME/dotfiles/vimrc.link $HOME/.vimrc
-ln -s $HOME/dotfiles/.zshrc $HOME
-ln -s $HOME/dotfiles/ftplugin $HOME/.vim
-ln -s $HOME/dotfiles/.gitignore $HOME
-ln -s $HOME/dotfiles/.gitconfig $HOME
+ln -s $HOME/dotfiles/vim/vimrc.link $HOME/.vimrc
+ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/vim/ftplugin $HOME/.vim/ftplugin
+ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
+ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
 
 # Env stuff
 # sourced at this location
@@ -22,14 +22,6 @@ open go1.13.7.darwin-amd64.pkg
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-
-# YCM
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer --go-completer --rust-completer
-ln -s ./global_extra_conf.py $HOME
 
 # Brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

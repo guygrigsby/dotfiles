@@ -1,33 +1,4 @@
-call plug#begin('~/.vim/plugged')
-Plug 'VundleVim/Vundle.vim'
-Plug 'avakhov/vim-yaml'
-Plug 'bling/vim-airline'
-Plug 'cespare/vim-toml'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'elzr/vim-json'
-Plug 'fatih/vim-go'
-Plug 'fatih/molokai'
-Plug 'guygrigsby/auto-pairs'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-Plug 'majutsushi/tagbar'
-Plug 'mattn/webapi-vim'
-Plug 'prettier/vim-prettier'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'rking/ag.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'Valloric/YouCompleteMe', { 'do' : '~/.vim/plugged/YouCompleteMe/install.py --clangd-completer --rust-completer --go-completer' }
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
-call plug#end()
-filetype plugin indent on
-
+source $DOTFILES/vim/plug.vim
 " AutoPairs
 let g:AutoPairsFlyMode = 0
 " Map <C-L> (redraw screen) to also turn off search highlighting until the

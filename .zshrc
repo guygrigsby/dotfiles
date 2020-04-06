@@ -65,6 +65,7 @@ source $ZSH/templates/zshrc.zsh-template
 #source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 #
 export SCRIPTS="$HOME/scripts"
+export DOTFILES="$HOME/dotfiles"
 
 if [ -f "$SCRIPTS/env.sh" ]; then source $SCRIPTS/env.sh; fi
 if [ -f "$SCRIPTS/secrets.sh" ]; then source $SCRIPTS/secrets.sh; fi
