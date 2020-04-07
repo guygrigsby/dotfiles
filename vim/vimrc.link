@@ -1,4 +1,11 @@
 source $DOTFILES/vim/plug.vim
+
+filetype plugin indent on
+syntax on
+
+nnoremap <leader>f gg=G``
+
+
 " AutoPairs
 let g:AutoPairsFlyMode = 0
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
@@ -8,8 +15,6 @@ nnoremap <C-L> :nohl<CR><C-L>
 " Map \- and \+ to resize window
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-
-
 
 "Folding
 set foldmethod=indent
@@ -25,10 +30,6 @@ set noswapfile
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
-
-
-" Enable syntax highlighting
-syntax on
 
 " spellcheck
 set spell spelllang=en_us
@@ -74,7 +75,7 @@ set laststatus=2
 set confirm
 
 " Use visual bell instead of beeping when doing something wrong
-set visualbell
+" set visualbell
 
 " And reset the terminal code for the visual bell. If visualbell is set, and
 " this line is also included, vim will neither flash nor beep. If visualbell
@@ -92,9 +93,6 @@ set number
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=0
 
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
-
 "yank to system clipboard
 set clipboard+=unnamed
 " turn off preview pane for autocomplete
@@ -105,14 +103,6 @@ set completeopt-=preview
 
 " }}}
 
-" Arrows off {{{ ---------------------------------------------
-" NO ARROWS
-nnoremap <Up> <NOP>
-nnoremap <Down> <NOP>
-nnoremap <Left> <NOP>
-nnoremap <Right> <NOP>
-nnoremap Q <NOP>
-" }}}
 " The Silver Searcher {{{ --------------------------------
 if executable('ag')
         " Use ag over grep
@@ -173,25 +163,9 @@ let g:AutoPairsFlyMode = 0
 " Prevent Fugitive conflicts with editor config
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
-nnoremap <C-L> :nohl<CR><C-L>
-
-" Map \- and \+ to resize window
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-" Python
-autocmd FileType json nmap <leader>f %!python -m json.tool
-
-
 " Notes dir
 let g:notes_directories = ['~/Google Drive/notes']
 
-" }}}
-" js
-
-" Python
-au FileType json nmap <leader>f %!python -m json.tool
 " YCM {{{
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>dv :leftabove vertical YcmCompleter GoTo<CR>

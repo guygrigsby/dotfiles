@@ -1,4 +1,6 @@
 set shiftwidth=2 
+set tabstop=2
 set expandtab
+set autoindent
 
-au BufNewFile,BufRead *.vim :normal gg=G
+au BufRead,BufWritePre *.vim :normal gg=G``

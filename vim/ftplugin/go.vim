@@ -1,6 +1,3 @@
-" Go {{{ --------------------------------------------
-echom "Running ftplugin Go"
-"
 function! s:build_go_files()
   let l:file = expand('%')
   if l:file =~# '^\f\+\.go$'

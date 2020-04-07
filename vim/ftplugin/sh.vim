@@ -1,1 +1,2 @@
-bash.vim
+
+nnoremap <leader>r :! clear && bash % <CR>

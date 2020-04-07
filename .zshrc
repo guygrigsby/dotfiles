@@ -103,6 +103,7 @@ alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
 alias vrc='vim ~/.vimrc'
+alias vcfg='vim ~/dotfiles/vim'
 alias zrc='vim ~/.zshrc'
 alias .z='. ~/.zshrc'
 alias .s=". $SCRIPTS/secrets.sh"
