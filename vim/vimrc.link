@@ -1,15 +1,71 @@
-source $DOTFILES/vim/plug.vim
+"------------{{{ Plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'avakhov/vim-yaml'
+Plug 'bling/vim-airline'
+Plug 'cespare/vim-toml', 
+      \ { 'for': 'toml' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ekalinin/Dockerfile.vim', 
+      \ { 'for': 'Dockerfile' }
+Plug 'elzr/vim-json', 
+      \ { 'for': 'json' }
+Plug 'fatih/vim-go', 
+      \ { 'do': ':GoInstallBinaries' }
+Plug 'fatih/molokai'
+Plug '$GG/vim-opine', { 'for': 'toml' }
+Plug 'guygrigsby/vim-scratch'
+Plug 'guygrigsby/vim-fts'
+Plug 'iamcco/markdown-preview.nvim', 
+      \ { 'do': { -> mkdp#util#install() } }
+Plug 'leafgarland/typescript-vim', 
+      \ { 'for': 'typescript' }
+Plug 'majutsushi/tagbar'
+Plug 'mattn/webapi-vim'
+Plug 'maxmellon/vim-jsx-pretty', 
+      \ { 'for': 'jsx' }
+Plug 'othree/yajs.vim', 
+      \ { 'for': 'javascript' }
+Plug 'prettier/vim-prettier', {
+      \ 'do': 'yarn install',
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'rking/ag.vim'
+Plug 'rstacruz/vim-closer'
+Plug 'rust-lang/rust.vim', 
+      \ { 'for': 'rust' }
+Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'Valloric/YouCompleteMe', { 
+      \ 'do' : '~/.vim/plugged/YouCompleteMe/install.py --clangd-completer --rust-completer  --go-completer' }
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/indentpython.vim', 
+      \ { 'for': 'python' } 
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+
+call plug#end()
+
+" Install missing plugins on vim open
+"autocmd VimEnter *
+"      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+"      \|   PlugInstall --sync | q
+"      \| endif
+"
+"
+"--------------}}}}}}}}}}}} Plug
 
 filetype plugin indent on
 syntax on
 
 nnoremap <leader>f gg=G``
-
-
-" AutoPairs
-let g:AutoPairsFlyMode = 0
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
 nnoremap <C-L> :nohl<CR><C-L>
 
 " Map \- and \+ to resize window
@@ -97,22 +153,18 @@ set notimeout ttimeout ttimeoutlen=0
 set clipboard+=unnamed
 " turn off preview pane for autocomplete
 set completeopt-=preview
-" autoformat js
-" autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
-
-
 " }}}
 
 " The Silver Searcher {{{ --------------------------------
 if executable('ag')
-        " Use ag over grep
-        set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
 
-        " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-        " ag is fast enough that CtrlP doesn't need to cache
-        let g:ctrlp_use_caching = 0
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
 " CTRLP fuzzy search within files
 let g:ctrlp_cmd = 'CtrlPLastMode'
@@ -127,39 +179,36 @@ set tags=./tags,tags;$HOME
 "
 "
 let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+      \ 'ctagstype' : 'go',
+      \ 'kinds'     : [
+      \ 'p:package',
+      \ 'i:imports:1',
+      \ 'c:constants',
+      \ 'v:variables',
+      \ 't:types',
+      \ 'n:interfaces',
+      \ 'w:fields',
+      \ 'e:embedded',
+      \ 'm:methods',
+      \ 'r:constructor',
+      \ 'f:functions'
+      \ ],
+      \ 'sro' : '.',
+      \ 'kind2scope' : {
+      \ 't' : 'ctype',
+      \ 'n' : 'ntype'
+      \ },
+      \ 'scope2kind' : {
+      \ 'ctype' : 't',
+      \ 'ntype' : 'n'
+      \ },
+      \ 'ctagsbin'  : 'gotags',
+      \ 'ctagsargs' : '-sort -silent'
+      \ }
 " }}}
 "
 " misc {{{ -------------------------------
 "
-" AutoPairs
-let g:AutoPairsFlyMode = 0
-
 " Prevent Fugitive conflicts with editor config
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
@@ -175,9 +224,9 @@ let g:ycm_auto_trigger = 1
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
 let g:ycm_extra_conf_vim_data = [
-  \  'g:ycm_python_interpreter_path',
-  \  'g:ycm_python_sys_path'
-  \]
+      \  'g:ycm_python_interpreter_path',
+      \  'g:ycm_python_sys_path'
+      \]
 "let g:ycm_global_ycm_extra_conf = '~/.global_extra_conf.py'
 " }}}
 " Airline {{{ ---------------------------------------------------
@@ -188,7 +237,7 @@ let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 " unicode symbols

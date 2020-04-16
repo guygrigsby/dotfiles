@@ -1,1 +1,0 @@
-/Users/guygrigsby/dotfiles/vim/ftplugin/javascript.vim
