@@ -1,3 +1,4 @@
+#zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -11,6 +12,9 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -23,6 +27,7 @@ plugins=(
   gcloud
   helm
   alias-tips
+  gcloud
 )
 autoload -U compinit -X && compinit -X
 autoload -U colors; colors
@@ -50,6 +55,7 @@ export EDITOR=vim
 export GOPATH=$HOME/go
 export PATH=/usr/local/bin:$PATH:$SCRIPTS:$GOPATH/bin:/usr/local/go/bin:$HOME/lib
 export GO111MODULE=on
+export GG=$GOPATH/src/github.com/guygrigsby
 # vi mode
 bindkey -v
 bindkey '^[[Z' reverse-menu-complete
@@ -85,8 +91,6 @@ alias .f=". $SCRIPTS/funcs.sh"
 
 alias yolo='git commit -av && ggpush'
 
-#PROMPT='$(kube_ps1)'$PROMPT
-
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 # Save and reload the history after each command finishes
@@ -96,7 +100,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 [ -f /Users/ggrigs200/.travis/travis.sh ] && source /Users/ggrigs200/.travis/travis.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/guy/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/guy/google-cloud-sdk/path.zsh.inc'; fi
