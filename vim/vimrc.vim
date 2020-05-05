@@ -28,7 +28,8 @@ Plug 'fatih/vim-go',
       \ { 'do': ':GoInstallBinaries' }
 Plug 'guygrigsby/vim-opine', { 'for': 'toml' }
 Plug 'guygrigsby/vim-scratch'
-Plug '$GG/vim-fts'
+"Plug '$GG/vim-fts'
+Plug 'guygrigsby/vim-fts'
 Plug 'guygrigsby/vim-opine', { 'for': 'toml' }
 Plug 'iamcco/markdown-preview.nvim', 
       \ { 'do': { -> mkdp#util#install() } }
