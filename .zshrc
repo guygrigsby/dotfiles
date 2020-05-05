@@ -81,7 +81,7 @@ alias tmp='cd ~/go/src/tmp'
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
-alias vrc="vim $DOTFILES/vim/vimrc.link"
+alias vrc="vim $DOTFILES/vim/vimrc.vim"
 alias vcfg='vim ~/dotfiles/vim'
 alias zrc='vim ~/.zshrc; echo "sourcing ~/.zshrc" && . ~/.zshrc'
 alias .z='. ~/.zshrc'
