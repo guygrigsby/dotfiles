@@ -89,8 +89,6 @@ alias .s=". $SCRIPTS/secrets.sh"
 alias .e=". $SCRIPTS/env.sh"
 alias .f=". $SCRIPTS/funcs.sh"
 
-alias yolo='git commit -av && ggpush'
-
 # Create a UUID
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 # Save and reload the history after each command finishes
