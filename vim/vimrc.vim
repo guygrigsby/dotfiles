@@ -57,19 +57,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
-Plug 'Valloric/YouCompleteMe'
 Plug 'vim-scripts/indentpython.vim', 
       \ { 'for': 'python' } 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-
-
-" Install missing plugins on vim open
-"autocmd VimEnter *
-"      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-"      \|   PlugInstall --sync | q
-"      \| endif
-"
 
 "--------------}}}}}}}}}}}} Plug
 call plug#end()
@@ -137,7 +128,7 @@ set showcmd
 " mapping of <C-L> below)
 set hlsearch
 " Use case insensitive search, except when using capital letters
-set smartcase
+"set smartcase
 
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
@@ -170,7 +161,7 @@ set confirm
 " is unset, this does nothing.
 set t_vb=
 
-set mouse=a
+"set mouse=a
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
