@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #Dotfiles this is where we are
-ln -s $HOME/dotfiles/vim/vimrc.link $HOME/.vimrc
+# Maybe I should move these to Google Drive
+ln -s $HOME/dotfiles/vim/vimrc.vim $HOME/.vimrc
 ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/vim/ftplugin $HOME/.vim/ftplugin
 ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
 ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
 
