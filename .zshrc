@@ -1,4 +1,7 @@
-#zmodload zsh/zprof
+zmodload zsh/zprof
+
+source <(antibody init)
+antibody bundle < ~/.zsh/.zsh_plugins.txt
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +11,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -19,22 +22,30 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  aws
-  git 
-  zsh-completions
-  zsh-kubectl-prompt
-  gcloud
-  helm
-  alias-tips
-  gcloud
-)
-autoload -U compinit -X && compinit -X
+#plugins=(
+#  aws
+#  git 
+#  zsh-completions
+#  zsh-kubectl-prompt
+#  helm
+#  alias-tips
+#  gcloud
+#)
+
 autoload -U colors; colors
 
-source $ZSH/oh-my-zsh.sh
-source $ZSH/templates/zshrc.zsh-template
-source $ZSH/custom/plugins/zsh-kubectl-prompt/kubectl.zsh
+PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_super_status)'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}) "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+
+ZSH_THEME_GIT_PROMPT_CACHE="true"
+
+#source $ZSH/oh-my-zsh.sh
+#source $ZSH/custom/plugins/zsh-kubectl-prompt/kubectl.zsh
 RPROMPT='%{$fg[cyan]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 #
@@ -89,9 +100,6 @@ alias .s=". $SCRIPTS/secrets.sh"
 alias .e=". $SCRIPTS/env.sh"
 alias .f=". $SCRIPTS/funcs.sh"
 
-# Create a UUID
-alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
-# Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # added by travis gem
@@ -104,3 +112,5 @@ if [ -f '/Users/guy/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/guy/google-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/guy/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/guy/google-cloud-sdk/completion.zsh.inc'; fi
+
+zprof

@@ -26,11 +26,9 @@ Plug 'elzr/vim-json',
       \ { 'for': 'json' }
 Plug 'fatih/vim-go', 
       \ { 'do': ':GoInstallBinaries' }
-Plug 'guygrigsby/vim-opine', { 'for': 'toml' }
+Plug '$GG/vim-opine',
 Plug 'guygrigsby/vim-scratch'
-"Plug '$GG/vim-fts'
-Plug 'guygrigsby/vim-fts'
-Plug 'guygrigsby/vim-opine', { 'for': 'toml' }
+Plug '$GG/vim-fts'
 Plug 'iamcco/markdown-preview.nvim', 
       \ { 'do': { -> mkdp#util#install() } }
 Plug 'leafgarland/typescript-vim', 
@@ -194,6 +192,7 @@ let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_extensions = ['line']
 " CtrlP
 let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_show_hidden = 1
 " }}}
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"`":"`", '```':'```', '"""':'"""', "'''":"'''"}
 
@@ -289,3 +288,6 @@ function! StopProf()
   :profile pause
   :noautocmd qall!
 endfunction
+
+let g:scratch_author = "Guy J Grigsby <https://grigsby.dev>"
+
