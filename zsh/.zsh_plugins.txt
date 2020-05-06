@@ -1,0 +1,13 @@
+# Plugins
+djui/alias-tips
+superbrothers/zsh-kubectl-prompt
+
+# comments are supported like this
+caarlos0/zsh-mkc
+zsh-users/zsh-completions
+
+# annotations are also allowed:
+#ohmyzsh/oh-my-zsh path:plugins/aws
+#ohmyzsh/oh-my-zsh path:plugins/git-prompt
+#ohmyzsh/oh-my-zsh path:plugins/git
+
