@@ -195,6 +195,12 @@ let g:ctrlp_extensions = ['line']
 " CtrlP
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_show_hidden = 1
+set wildignore+=vendor/**,*/tmp/*,*.so,*.swp,*.zip
+
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](node_modules\|vendor/|\.git)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
 " }}}
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"`":"`", '```':'```', '"""':'"""', "'''":"'''"}
 
@@ -293,3 +299,16 @@ endfunction
 
 let g:scratch_author = "Guy J Grigsby <https://grigsby.dev>"
 
+function! TabMessage(cmd)
+  redir => message
+  silent execute a:cmd
+  redir END
+  if empty(message)
+    echoerr "no output"
+  else
+    new
+    setlocal buftype=nofile bufhidden=wipe noswapfile nobuflisted nomodified
+    silent put=message
+  endif
+endfunction
+command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
