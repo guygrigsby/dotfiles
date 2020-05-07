@@ -5,9 +5,9 @@ superbrothers/zsh-kubectl-prompt
 # comments are supported like this
 caarlos0/zsh-mkc
 zsh-users/zsh-completions
+#zsh-users/zsh-syntax-highlighting
 
+guygrigsby/zsh-git-prompt.git
+#
 # annotations are also allowed:
-#ohmyzsh/oh-my-zsh path:plugins/aws
-#ohmyzsh/oh-my-zsh path:plugins/git-prompt
-#ohmyzsh/oh-my-zsh path:plugins/git
-
+ohmyzsh/ohmyzsh path:plugins/git

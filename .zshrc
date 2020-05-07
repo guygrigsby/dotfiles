@@ -1,7 +1,8 @@
-zmodload zsh/zprof
+#zmodload zsh/zprof
+autoload -U compinit -X && compinit -X
 
 source <(antibody init)
-antibody bundle < ~/.zsh/.zsh_plugins.txt
+antibody bundle < ~/.zsh/zsh_plugins.txt
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -31,11 +32,10 @@ CASE_SENSITIVE="true"
 #  alias-tips
 #  gcloud
 #)
-
 autoload -U colors; colors
 
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_super_status)'
+PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}) "
@@ -52,6 +52,7 @@ RPROMPT='%{$fg[cyan]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 export SCRIPTS="$HOME/scripts"
 export DOTFILES="$HOME/dotfiles"
 
+if [ -f "$DOTFILES/zsh/git.zsh" ]; then source $DOTFILES/zsh/git.zsh; fi
 if [ -f "$SCRIPTS/env.sh" ]; then source $SCRIPTS/env.sh; fi
 if [ -f "$SCRIPTS/secrets.sh" ]; then source $SCRIPTS/secrets.sh; fi
 if [ -f "$SCRIPTS/funcs.sh" ]; then source $SCRIPTS/funcs.sh; fi
@@ -113,4 +114,4 @@ if [ -f '/Users/guy/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/guy/google-
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/guy/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/guy/google-cloud-sdk/completion.zsh.inc'; fi
 
-zprof
+#zprof

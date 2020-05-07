@@ -15,6 +15,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
+
 call plug#begin('~/.vim/plugged')
 Plug 'avakhov/vim-yaml', { 'for': 'yaml' }
 Plug 'bling/vim-airline'
