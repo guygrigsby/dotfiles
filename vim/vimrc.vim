@@ -28,9 +28,10 @@ Plug 'elzr/vim-json',
       \ { 'for': 'json' }
 Plug 'fatih/vim-go', 
       \ { 'do': ':GoInstallBinaries' }
-Plug '$GG/vim-opine',
+Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'guygrigsby/vim-scratch'
 Plug '$GG/vim-fts'
+Plug 'h1mesuke/vim-unittest'
 Plug 'iamcco/markdown-preview.nvim', 
       \ { 'do': { -> mkdp#util#install() } }
 Plug 'leafgarland/typescript-vim', 
@@ -61,6 +62,7 @@ Plug 'vim-scripts/indentpython.vim',
       \ { 'for': 'python' } 
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+
 
 "--------------}}}}}}}}}}}} Plug
 call plug#end()
@@ -299,7 +301,7 @@ endfunction
 
 let g:scratch_author = "Guy J Grigsby <https://grigsby.dev>"
 
-function! TabMessage(cmd)
+function! RunCommandInBuffer(cmd)
   redir => message
   silent execute a:cmd
   redir END
@@ -311,4 +313,5 @@ function! TabMessage(cmd)
     silent put=message
   endif
 endfunction
-command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
+
+command! -nargs=+ -complete=command BuffList call RunCommandInBuffer(<q-args>)
