@@ -1,6 +1,6 @@
 # Plugins
 djui/alias-tips
-superbrothers/zsh-kubectl-prompt
+#superbrothers/zsh-kubectl-prompt
 
 # comments are supported like this
 caarlos0/zsh-mkc

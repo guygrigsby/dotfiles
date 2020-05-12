@@ -1,8 +1,10 @@
 #!/bin/zsh
-zmodload zsh/zprof
+#zmodload zsh/zprof
 
 export GG=$GOPATH/src/github.com/guygrigsby
 export EDITOR=vim
+
+#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 autoload -U colors; colors
 #
@@ -22,23 +24,26 @@ autoload -U compinit -X && compinit -X
 source <(antibody init)
 antibody bundle < ~/.zsh/zsh_plugins.txt
 
-# Rust
-if [ -f "$HOME/.cargo/env" ]; then source $HOME/.cargo/env; fi
-
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source "$file"
 done
-#
+
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
+
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}; do
   source "$file"
 done
 
-# vi mode
-bindkey -v
-bindkey '^[[Z' reverse-menu-complete
+unset config_files updated_at
+
 
 [ -f ~/.localrc ] && . ~/.localrc
 
-zprof
+#zprof
