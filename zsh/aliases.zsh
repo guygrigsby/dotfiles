@@ -20,12 +20,11 @@ alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
 alias vrc="vim $DOTFILES/vim/vimrc.vim"
-alias vcfg='vim ~/dotfiles/vim'
-alias zrc='vim ~/.zshrc; echo "sourcing ~/.zshrc" && . ~/.zshrc'
+alias vcfg="vim $DOTFILES/vim'r"
+alias zrc="vim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && . ~/.zshrc"
+alias lrc="vim ~/.localrc"
 alias .z='. ~/.zshrc'
-alias .s=". $SCRIPTS/secrets.sh"
-alias .e=". $SCRIPTS/env.sh"
-alias .f=". $SCRIPTS/funcs.sh"
+alias .l='. ~/.localrc'
 
 alias ..="cd .."
 alias ...="cd ../.."

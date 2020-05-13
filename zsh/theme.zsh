@@ -2,9 +2,12 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 v_mode=""
 
-PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT='%{$fg[magenta]%}['
 #PROMPT+=' %{$fg[cyan]%}%1~%{$reset_color%} $(git_prompt_info)'
-PROMPT+=' %{$fg[cyan]%}$(shorty)%{$reset_color%} $(git_prompt_info)'
+PROMPT+='%{$fg_bold[white]%}$(shorty)%{$reset_color%}'
+PROMPT+='%{$fg[magenta]%}]'
+PROMPT+='%{$fg_bold[white]%} $(git_prompt_info) '
+PROMPT+='%{$reset_color%}'
 
 
 function shorty () {
@@ -19,13 +22,13 @@ function shorty () {
 		short_path+="${dir:0:1}/"
 	done
 
-	print ${short_path:0:-1}
+	echo ${short_path:0:-1}
 }
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[magenta]%}[%{$fg[white]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[magenta]%}[%{$fg_bold[white]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[magenta]%}] %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[magenta]%}]"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}%{$fg[magenta]%}]%{$fg_bold[yellow]%} ➜"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%}%{$fg[magenta]%}] ➜"
 
 ZSH_THEME_GIT_PROMPT_CACHE="true"
 

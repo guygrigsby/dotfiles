@@ -3,6 +3,7 @@
 
 export GG=$GOPATH/src/github.com/guygrigsby
 export EDITOR=vim
+export VISUAL=vim
 
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
