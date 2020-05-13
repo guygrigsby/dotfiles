@@ -44,6 +44,9 @@ done
 
 unset config_files updated_at
 
+# vi mode
+bindkey -v
+bindkey '^[[Z' reverse-menu-complete
 
 [ -f ~/.localrc ] && . ~/.localrc
 

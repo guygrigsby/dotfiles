@@ -55,8 +55,9 @@ Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-dispatch'
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
-"Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/applescript.vim', { 'for': 'applescript' }
 Plug 'vim-scripts/indentpython.vim', 
       \ { 'for': 'python' } 
@@ -67,11 +68,14 @@ Plug 'xolox/vim-notes'
 "--------------}}}}}}}}}}}} Plug
 call plug#end()
 
+nmap <leader>t :UnitTest <CR>
+
+
 " Install missing plugins on vim open
-autocmd VimEnter *
-      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \|   PlugInstall --sync | q
-      \| endif
+"autocmd VimEnter *
+"      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+"      \|   PlugInstall --sync | q
+"      \| endif
 
 
 filetype plugin indent on
@@ -84,6 +88,7 @@ syntax on
 "nnoremap :g/ :g/\v
 "nnoremap :g// :g//
 "}}} --------------------------------------------------------
+
 
 nnoremap <leader>f gg=G``
 nnoremap <C-L> :nohl<CR><C-L>

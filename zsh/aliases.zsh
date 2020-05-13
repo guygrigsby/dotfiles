@@ -30,4 +30,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-
+alias op='cd $GG/vim-opine && vim -O indent/toml.vim sample.toml'
+alias asl='cd ~/generalassembly'
+alias gs='cd ~/generalassembly'
