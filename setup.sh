@@ -1,18 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 
 #Dotfiles this is where we are
 # Maybe I should move these to Google Drive
 ln -s $HOME/dotfiles/vim/vimrc.vim $HOME/.vimrc
-ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
-ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
-ln -s $HOME/dotfiles/zsh $HOME/.zsh
-
-# Env stuff
-# sourced at this location
-git clone git@github.com:guygrigsby/scripts.git $HOME/scripts
-# Basics
-git clone git@github.com:guygrigsby/necessities.git $HOME/necessities
+ln -s $HOME/dotfiles/git/gitignore.link $HOME/.gitignore
+ln -s $HOME/dotfiles/git/gitconfig.link $HOME/.gitconfig
+ln -s $HOME/dotfiles/zsh/zshrc.link $HOME/.zshrc
 
 # Go
 mkdir -p $HOME/go

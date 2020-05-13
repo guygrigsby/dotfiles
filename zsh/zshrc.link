@@ -1,11 +1,10 @@
 #!/bin/zsh
 #zmodload zsh/zprof
+#
+#set -exuo pipefail
 
-export GG=$GOPATH/src/github.com/guygrigsby
 export EDITOR=vim
 export VISUAL=vim
-
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 autoload -U colors; colors
 #
@@ -23,7 +22,7 @@ done
 autoload -U compinit -X && compinit -X
 
 source <(antibody init)
-antibody bundle < ~/.zsh/zsh_plugins.txt
+antibody bundle < $DOTFILES/zsh/zsh_plugins.txt
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
