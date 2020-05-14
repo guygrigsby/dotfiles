@@ -4,8 +4,7 @@
 # Maybe I should move these to Google Drive
 ln -s $HOME/dotfiles/vim/vimrc.vim $HOME/.vimrc
 ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
-ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
+ln -s $HOME/dotfiles/git $HOME/.config/git
 ln -s $HOME/dotfiles/zsh $HOME/.zsh
 
 # Env stuff
