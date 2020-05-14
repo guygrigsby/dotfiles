@@ -1,7 +1,8 @@
 #!/bin/zsh
 #zmodload zsh/zprof
+#
+#set -exuo pipefail
 
-export GG=$GOPATH/src/github.com/guygrigsby
 export EDITOR=vim
 export VISUAL=vim
 
