@@ -6,6 +6,7 @@ ln -s $HOME/dotfiles/vim/vimrc.vim $HOME/.vimrc
 ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/git $HOME/.config/git
 ln -s $HOME/dotfiles/zsh $HOME/.zsh
+ln -s $HOME/dotfiles/vim/ftplugin $HOME/.vim
 
 # Env stuff
 # sourced at this location
