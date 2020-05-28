@@ -30,7 +30,6 @@ Plug 'fatih/vim-go',
       \ { 'do': ':GoInstallBinaries' }
 Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'guygrigsby/vim-scratch'
-Plug '$GG/vim-fts'
 Plug 'h1mesuke/vim-unittest'
 Plug 'iamcco/markdown-preview.nvim', 
       \ { 'do': { -> mkdp#util#install() } }
@@ -98,7 +97,6 @@ nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 nnoremap <silent> Q <nop>
-
 "Folding
 set foldmethod=indent
 set foldlevel=99
@@ -308,6 +306,26 @@ function! s:CloseBracket()
     endif
 endfunction
 inoremap <expr> {<Enter> <SID>CloseBracket()
+  let line = getline('.')
+  if line =~# '^\s*\(struct\|func\|enum\) '
+    return "{\<CR>}\<Esc>O"
+  elseif searchpair('(', '', ')', 'bmn', '', line('.'))
+    " Probably inside a function call. Close it off.
+    return "{\<CR>})\<Esc>O"
+  elseif search('\m/[\w\s]+$', 'nWp', line("."))
+    " if there are words after the cursor, put them in the block we create
+    " work in progress 
+    "let col = getcurpos()[2]
+    "let l = getline(".")
+    ":normal d$
+    "let m = l[col:strlen(l)-1]
+    "return "{\<CR>" . m . "}\<Esc>O"
+    return "{\<CR>}\<Esc>O"
+  else
+    return "{\<CR>}\<Esc>O"
+  endif
+endfunction
+inoremap <expr> {<CR> <SID>CloseBracket()
 
 function! StartProf()
   :profile start profile.log

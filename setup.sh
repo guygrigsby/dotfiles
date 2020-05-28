@@ -6,6 +6,16 @@ ln -s $HOME/dotfiles/vim/vimrc.vim $HOME/.vimrc
 ln -s $HOME/dotfiles/git/gitignore.link $HOME/.gitignore
 ln -s $HOME/dotfiles/git/gitconfig.link $HOME/.gitconfig
 ln -s $HOME/dotfiles/zsh/zshrc.link $HOME/.zshrc
+ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/git $HOME/.config/git
+ln -s $HOME/dotfiles/zsh $HOME/.zsh
+ln -s $HOME/dotfiles/vim/ftplugin $HOME/.vim
+
+# Env stuff
+# sourced at this location
+git clone git@github.com:guygrigsby/scripts.git $HOME/scripts
+# Basics
+git clone git@github.com:guygrigsby/necessities.git $HOME/necessities
 
 # Go
 mkdir -p $HOME/go
