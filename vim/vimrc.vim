@@ -97,6 +97,8 @@ nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
+nnoremap <silent> Q <nop>
+
 "Folding
 set foldmethod=indent
 set foldlevel=99
@@ -292,6 +294,20 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 ":hi ColorColumn ctermbg=0 guibg=#eee8d5
+"
+""auto close {
+function! s:CloseBracket()
+    let line = getline('.')
+    if line =~# '^\s*\(struct\|class\|enum\) '
+        return "{\<Enter>};\<Esc>O"
+    elseif searchpair('(', '', ')', 'bmn', '', line('.'))
+        " Probably inside a function call. Close it off.
+        return "{\<Enter>});\<Esc>O"
+    else
+        return "{\<Enter>}\<Esc>O"
+    endif
+endfunction
+inoremap <expr> {<Enter> <SID>CloseBracket()
 
 function! StartProf()
   :profile start profile.log
