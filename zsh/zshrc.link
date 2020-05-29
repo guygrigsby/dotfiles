@@ -52,3 +52,5 @@ bindkey '^[[Z' reverse-menu-complete
 [ -f ~/.localrc ] && . ~/.localrc
 
 #zprof
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -9,6 +9,7 @@ alias ll='ls -lah'
 
 alias k='kubectl'
 alias kp='kubectl get po -o wide'
+alias kl='kubectl logs -f'
 alias kn='kubectl get no'
 alias kg='kubectl get -o yaml'
 alias kd='kubectl describe'
