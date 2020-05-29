@@ -21,7 +21,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'avakhov/vim-yaml', { 'for': 'yaml' }
 Plug 'bling/vim-airline'
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ekalinin/Dockerfile.vim', 
       \ { 'for': 'Dockerfile' }
 Plug 'elzr/vim-json', 
@@ -33,6 +32,8 @@ Plug 'guygrigsby/vim-scratch'
 Plug 'h1mesuke/vim-unittest'
 Plug 'iamcco/markdown-preview.nvim', 
       \ { 'do': { -> mkdp#util#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim', 
       \ { 'for': 'typescript' }
 Plug 'mattn/webapi-vim'
@@ -68,6 +69,7 @@ Plug 'xolox/vim-notes'
 call plug#end()
 
 nmap <leader>t :UnitTest <CR>
+nmap <C-p> :Files <CR>
 
 
 " Install missing plugins on vim open
@@ -183,31 +185,6 @@ set notimeout ttimeout ttimeoutlen=0
 set clipboard+=unnamed
 " turn off preview pane for autocomplete
 set completeopt-=preview
-" }}}
-
-" The Silver Searcher {{{ --------------------------------
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-" CTRLP fuzzy search within files
-let g:ctrlp_cmd = 'CtrlPLastMode'
-let g:ctrlp_extensions = ['line']
-" CtrlP
-let g:ctrlp_working_path_mode = 'rw'
-let g:ctrlp_show_hidden = 1
-set wildignore+=vendor/**,*/tmp/*,*.so,*.swp,*.zip
-
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](node_modules\|vendor/|\.git)$',
-      \ 'file': '\v\.(exe|so|dll)$',
-      \ }
 " }}}
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"`":"`", '```':'```', '"""':'"""', "'''":"'''"}
 
