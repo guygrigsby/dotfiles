@@ -45,7 +45,7 @@ Plug 'othree/yajs.vim',
       \ { 'for': 'javascript' }
 Plug 'prettier/vim-prettier', {
       \ 'do': 'yarn install',
-      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+      \ 'for': ['javascript', 'jsx', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim', 
@@ -70,6 +70,9 @@ call plug#end()
 
 nmap <leader>t :UnitTest <CR>
 nmap <C-p> :Files <CR>
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#exec_cmd_async = 1
 
 
 " Install missing plugins on vim open
@@ -270,40 +273,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 ":hi ColorColumn ctermbg=0 guibg=#eee8d5
 "
-""auto close {
-function! s:CloseBracket()
-    let line = getline('.')
-    if line =~# '^\s*\(struct\|class\|enum\) '
-        return "{\<Enter>};\<Esc>O"
-    elseif searchpair('(', '', ')', 'bmn', '', line('.'))
-        " Probably inside a function call. Close it off.
-        return "{\<Enter>});\<Esc>O"
-    else
-        return "{\<Enter>}\<Esc>O"
-    endif
-endfunction
-inoremap <expr> {<Enter> <SID>CloseBracket()
-  let line = getline('.')
-  if line =~# '^\s*\(struct\|func\|enum\) '
-    return "{\<CR>}\<Esc>O"
-  elseif searchpair('(', '', ')', 'bmn', '', line('.'))
-    " Probably inside a function call. Close it off.
-    return "{\<CR>})\<Esc>O"
-  elseif search('\m/[\w\s]+$', 'nWp', line("."))
-    " if there are words after the cursor, put them in the block we create
-    " work in progress 
-    "let col = getcurpos()[2]
-    "let l = getline(".")
-    ":normal d$
-    "let m = l[col:strlen(l)-1]
-    "return "{\<CR>" . m . "}\<Esc>O"
-    return "{\<CR>}\<Esc>O"
-  else
-    return "{\<CR>}\<Esc>O"
-  endif
-endfunction
-inoremap <expr> {<CR> <SID>CloseBracket()
-
 function! StartProf()
   :profile start profile.log
   :profile func *
