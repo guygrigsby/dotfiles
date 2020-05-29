@@ -10,6 +10,6 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 
-autocmd BufWritePre *.js :normal gg=G``
+"autocmd BufWritePre *.js :normal gg=G``
 " FORMATTERS
 setlocal formatprg=prettier
