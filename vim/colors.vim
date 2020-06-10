@@ -6,6 +6,9 @@
 " Summary: Colors
 "
 " Note: Based on 
+" Fatih Arslan <https://arslan.io>
+" https://github.com/fatih/molokai
+" that was based on
 " Tomas Restrepo <tomas@winterdom.com>
 " https://github.com/tomasr/molokai
 " that was based on the Monokai theme for TextMate
@@ -40,11 +43,11 @@ hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF
 hi String          guifg=#E6DB74
-hi Conditional     guifg=#F92672               gui=bold
-hi Constant        guifg=#AE81FF               gui=bold
+hi Conditional     guifg=#F92672               
+hi Constant        guifg=#AE81FF               
 hi Cursor          guifg=#000000 guibg=#F8F8F0
 hi iCursor         guifg=#000000 guibg=#F8F8F0
-hi Debug           guifg=#BCA3A3               gui=bold
+hi Debug           guifg=#BCA3A3               
 hi Define          guifg=#66D9EF
 hi Delimiter       guifg=#8F8F8F
 hi DiffAdd                       guibg=#13354A
@@ -64,7 +67,7 @@ hi Identifier      guifg=#FD971F
 hi Ignore          guifg=#808080 guibg=bg
 hi IncSearch       guifg=#C4BE89 guibg=#000000
 
-hi Keyword         guifg=#F92672               gui=bold
+hi Keyword         guifg=#F92672               
 hi Label           guifg=#E6DB74               gui=none
 hi Macro           guifg=#C4BE89               gui=italic
 hi SpecialKey      guifg=#66D9EF               gui=italic
@@ -96,7 +99,7 @@ if has("spell")
   hi SpellLocal  guisp=#70F0F0 gui=undercurl
   hi SpellRare   guisp=#FFFFFF gui=undercurl
 endif
-hi Statement       guifg=#F92672               gui=bold
+hi Statement       guifg=#F92672               
 hi StatusLine      guifg=#455354 guibg=fg
 hi StatusLineNC    guifg=#808080 guibg=#080808
 hi StorageClass    guifg=#FD971F               gui=italic

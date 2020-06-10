@@ -1,0 +1,9 @@
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive
+[color]
+	ui = true
+[user]
+	name = Guy J Grigsby
+	email = guy.grigsby@gmail.com

@@ -1,3 +1,5 @@
+alias white='cd /Users/guygrigsby/go/src/github.com/guygrigsby/whitelist'
+
 alias gclum='git checkout master && git pull upstream master'
 alias gclom='git checkout master && git pull origin master'
 alias glom='git pull origin master'
@@ -20,6 +22,7 @@ alias tmp='cd ~/go/src/tmp'
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
+alias vim='mvim'
 alias vrc="vim $DOTFILES/vim"
 alias vcfg="vim $DOTFILES/vim'r"
 alias zrc="vim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && . ~/.zshrc"
