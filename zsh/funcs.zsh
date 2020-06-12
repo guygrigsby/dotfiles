@@ -14,9 +14,18 @@ function yolo () {
 	else	
 		git commit -av 
 	fi
-	ggpush
+	git push
 
 }
+
+function decode_secrets () {
+
+	for e in $(kubectl -n appcatalog-realdev get secret $1 -o json | jq -r '.data | to_entries[] | "\(.key)=\(.value|@base64d)"'); do
+		echo $e
+	done
+}
+
+
 
 # k get po -o json | jq -r '.items[].name | select(startswith("hook") )'
 function kl () {

@@ -11,9 +11,6 @@ set tabstop=2
 set expandtab
 
 " Fix files with prettier, and then ESLint.
-let g:ale_set_highlights = 1
-let g:ale_linters = {'javascript': ['prettier', 'eslint']}
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
 let g:ale_fix_on_save = 1
 

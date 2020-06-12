@@ -34,7 +34,7 @@ Plug 'maxmellon/vim-jsx-pretty',
       \ { 'for': 'jsx' }
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim', 
       \ { 'for': 'rust' }
@@ -94,6 +94,17 @@ set noshowmode
 "
 "
 " ale
+let g:ale_fixers = {
+      \   '*'         : ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['prettier', 'eslint']
+      \}
+let g:ale_linters = {
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'go'        : ['govet', 'golangci-lint', 'golint']
+      \}
+let g:ale_sign_style_error = '>>'
+let g:ale_sign_style_warning = '--' 
+let g:ale_set_highlights = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
@@ -152,12 +163,12 @@ set notimeout ttimeout ttimeoutlen=0
 "yank to system clipboard
 set clipboard+=unnamed
 " turn off preview pane for autocomplete
-set completeopt-=preview
+"set completeopt-=preview
 " }}}
 
 "gotags and tagbar {{{ ----------------------------------
 """
-set statusline+=%{gutentags#statusline()}
+"set statusline+=%{gutentags#statusline()}
 
 let gutentags_cache_dir="~/gutentags_cache_dir"
 

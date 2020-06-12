@@ -19,6 +19,9 @@ nmap <leader>r <Plug>(go-run)
 nmap <leader>gl <Plug>(go-metalinter)
 nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
+" ALE syntax checker
+let g:ale_fix_on_save = 0
+
 " For running goimports on save
 let g:go_fmt_command ="goimports"
 let g:go_fmt_options = {

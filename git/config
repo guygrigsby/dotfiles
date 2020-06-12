@@ -2,8 +2,10 @@
 [user]
 	name = Guy J Grigsby
 	email = guy.grigsby@nytimes.com
+[url "ssh://git@github.com/nytimes"]
+	insteadOf = https://github.com/nytimes
 [core]
-	excludesfile = /Users/guy/dotfiles/git/gitignore
+	excludesfile = /Users/guy/dotfiles/git/gitignore.link
 	editor = vim
 [color]
 	ui = true
