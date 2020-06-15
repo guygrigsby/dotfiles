@@ -3,8 +3,8 @@
 #
 #set -exuo pipefail
 
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=vimr
+export VISUAL=vimr
 
 autoload -U colors; colors
 #

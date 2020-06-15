@@ -20,23 +20,24 @@ autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale' "syntax error highlighting
-Plug 'fatih/vim-go', { 
-      \ 'do': ':GoInstallBinaries', 
+Plug 'fatih/vim-go', {
+      \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
 Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'guygrigsby/vim-scratch'
-Plug 'iamcco/markdown-preview.nvim', 
+Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() } }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/webapi-vim'
-Plug 'maxmellon/vim-jsx-pretty', 
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty',
       \ { 'for': 'jsx' }
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
-"Plug 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 Plug 'rking/ag.vim'
-Plug 'rust-lang/rust.vim', 
+Plug 'rust-lang/rust.vim',
       \ { 'for': 'rust' }
 Plug 'skywind3000/asyncrun.vim'
 Plug 'tpope/vim-surround'
@@ -60,7 +61,7 @@ nmap <C-p> :Files <CR>
 "      \|   PlugInstall --sync | q
 "      \| endif
 "
-" terminal 
+" terminal
 let termwinsize = 10*0
 
 " Open Nerdtree on start if a directory is chosen
@@ -96,14 +97,15 @@ set noshowmode
 " ale
 let g:ale_fixers = {
       \   '*'         : ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['prettier', 'eslint']
+      \   'javascript': ['prettier']
       \}
 let g:ale_linters = {
-      \ 'javascript': ['prettier', 'eslint'],
+      \ 'javascript': ['eslint'],
       \ 'go'        : ['govet', 'golangci-lint', 'golint']
       \}
+let g:ale_fix_on_save = 1
 let g:ale_sign_style_error = '>>'
-let g:ale_sign_style_warning = '--' 
+let g:ale_sign_style_warning = '--'
 let g:ale_set_highlights = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
