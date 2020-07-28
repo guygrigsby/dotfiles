@@ -35,7 +35,6 @@ Plug 'maxmellon/vim-jsx-pretty',
       \ { 'for': 'jsx' }
 Plug 'preservim/nerdtree'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'Raimondi/delimitMate'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim',
       \ { 'for': 'rust' }
@@ -101,8 +100,9 @@ let g:ale_fixers = {
       \}
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
-      \ 'go'        : ['govet', 'golangci-lint', 'golint']
+      \ 'go'        : ['golangci-lint']
       \}
+let g:ale_go_golangci_lint_options = '--fast'
 let g:ale_fix_on_save = 1
 let g:ale_sign_style_error = '>>'
 let g:ale_sign_style_warning = '--'
@@ -170,9 +170,7 @@ set clipboard+=unnamed
 
 "gotags and tagbar {{{ ----------------------------------
 """
-"set statusline+=%{gutentags#statusline()}
-
-let gutentags_cache_dir="~/gutentags_cache_dir"
+source $HOME/dotfiles/vim/gutentags.vim
 
 " misc {{{ -------------------------------
 "
