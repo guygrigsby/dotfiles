@@ -22,7 +22,7 @@ alias tmp='cd ~/go/src/tmp'
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
-alias vim='vimr --nvim'
+alias vim='nvim'
 alias vrc="vim $DOTFILES/vim"
 alias zrc="vim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && . ~/.zshrc"
 alias lrc="vim ~/.localrc"
