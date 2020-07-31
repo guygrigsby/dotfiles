@@ -3,7 +3,7 @@
 #
 #set -exuo pipefail
 
-export EDITOR='vimr --nvim'
+export EDITOR='nvim'
 export VISUAL='vimr --nvim'
 
 autoload -U colors; colors

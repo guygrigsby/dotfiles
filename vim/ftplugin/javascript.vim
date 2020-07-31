@@ -16,5 +16,7 @@ let g:ale_fix_on_save = 1
 
 nnoremap <leader>r :term node % <CR>
 
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 "autocmd BufWritePre *.js :normal gg=G``
 " FORMATTERS

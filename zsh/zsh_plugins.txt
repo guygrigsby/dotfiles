@@ -11,3 +11,5 @@ guygrigsby/zsh-git-prompt.git
 #
 # annotations are also allowed:
 ohmyzsh/ohmyzsh path:plugins/git
+
+Aloxaf/fzf-tab

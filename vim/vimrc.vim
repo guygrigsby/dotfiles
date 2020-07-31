@@ -18,6 +18,7 @@ endif
 autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 
 call plug#begin('~/.vim/plugged')
+Plug 'alvan/vim-closetag'
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale' "syntax error highlighting
 Plug 'fatih/vim-go', {
