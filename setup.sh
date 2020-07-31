@@ -1,15 +1,18 @@
 #!/bin/zsh
+#
+export DOTFILES=$HOME/dotfiles
 
 #Dotfiles this is where we are
 # Maybe I should move these to Google Drive
-ln -s $HOME/dotfiles/vim/vimrc.vim $HOME/.vimrc
-ln -s $HOME/dotfiles/git/gitignore.link $HOME/.gitignore
-ln -s $HOME/dotfiles/git/gitconfig.link $HOME/.gitconfig
-ln -s $HOME/dotfiles/zsh/zshrc.link $HOME/.zshrc
-ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/git $HOME/.config/git
-ln -s $HOME/dotfiles/zsh $HOME/.zsh
-ln -s $HOME/dotfiles/vim/ftplugin $HOME/.vim
+ln -s $DOTFILES/vim/vimrc.vim $HOME/.vimrc
+ln -s $DOTFILES/git/gitignore.link $HOME/.gitignore
+ln -s $DOTFILES/git/gitconfig.link $HOME/.gitconfig
+ln -s $DOTFILES/zsh/zshrc.link $HOME/.zshrc
+ln -s $DOTFILES/.zshrc $HOME/.zshrc
+ln -s $DOTFILES/git $HOME/.config/git
+ln -s $DOTFILES/zsh $HOME/.zsh
+ln -s $DOTFILES/vim/ftplugin $HOME/.vim
+ln -s $DOTFILES/ag/ignore $HOME/.ignore
 
 # Env stuff
 # sourced at this location
