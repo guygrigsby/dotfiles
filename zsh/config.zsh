@@ -7,7 +7,6 @@ bindkey '^P' up-history
 bindkey '^N' down-history
 
 ulimit -n 4096
-export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.ignore --nocolor --hidden -g ""'
 
 ##############################################################################
 # History Configuration
