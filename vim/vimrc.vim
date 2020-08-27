@@ -40,6 +40,7 @@ Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim',
       \ { 'for': 'rust' }
 Plug 'skywind3000/asyncrun.vim'
+Plug 'stevearc/vim-arduino'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') } "autocomplete
@@ -97,7 +98,11 @@ set noshowmode
 " ale
 let g:ale_fixers = {
       \   '*'         : ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['prettier']
+      \   'javascript': ['prettier'],
+      \   'css': ['prettier'],
+      \   'html': ['prettier'],
+      \   'c': ['prettier'],
+      \   'ino': ['prettier']
       \}
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
