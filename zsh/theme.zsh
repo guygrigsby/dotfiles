@@ -1,3 +1,4 @@
+#!/bin/zsh
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 v_mode=""
