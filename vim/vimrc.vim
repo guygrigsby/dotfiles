@@ -81,7 +81,7 @@ let g:plug_window = 'noautocmd vertical topleft new'
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'deepspace',
+      \ 'colorscheme': 'deep_space',
       \ }
 
 " remove default '-- INSERT --' because it's in the line
