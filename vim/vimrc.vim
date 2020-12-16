@@ -30,16 +30,18 @@ Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() } }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
 Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty',
-      \ { 'for': 'jsx' }
+Plug 'prettier/vim-prettier'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'preservim/nerdtree'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim',
       \ { 'for': 'rust' }
 Plug 'skywind3000/asyncrun.vim'
+Plug 'stevearc/vim-arduino'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') } "autocomplete
@@ -79,7 +81,7 @@ let g:plug_window = 'noautocmd vertical topleft new'
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'molokai',
+      \ 'colorscheme': 'deep_space',
       \ }
 
 " remove default '-- INSERT --' because it's in the line
@@ -97,7 +99,11 @@ set noshowmode
 " ale
 let g:ale_fixers = {
       \   '*'         : ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['prettier']
+      \   'javascript': ['prettier'],
+      \   'css': ['prettier'],
+      \   'html': ['prettier'],
+      \   'c': ['prettier'],
+      \   'ino': ['prettier']
       \}
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
@@ -105,6 +111,7 @@ let g:ale_linters = {
       \}
 let g:ale_go_golangci_lint_options = '--fast'
 let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --no-semi'
 let g:ale_sign_style_error = '>>'
 let g:ale_sign_style_warning = '--'
 let g:ale_set_highlights = 1
@@ -126,8 +133,11 @@ set foldmethod=indent
 set foldlevel=99
 set encoding=utf-8
 "
-" colorscheme slate
-colorscheme custom-molokai
+set background=dark
+set termguicolors
+colorscheme deep-space
+let g:deepspace_italics=1
+"colorscheme custom-molokai
 
 " Turn of swap files
 set noswapfile
@@ -171,7 +181,9 @@ set clipboard+=unnamed
 
 "gotags and tagbar {{{ ----------------------------------
 """
-source $HOME/dotfiles/vim/gutentags.vim
+let gt=$HOME . '/dotfiles/vim/gutentags.vim'
+exec 'source ' . gt
+
 
 " misc {{{ -------------------------------
 "
