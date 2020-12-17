@@ -35,8 +35,10 @@ let g:go_build_tags = "integration,example"
 " GoMetaLinter settings
 let g:go_metalinter_autosave = 0
 let g:go_list_type = 'quickfix'
+let g:go_metalinter_enabled = ["govet", "golint"]
+let g:go_metalinter_autosave_enabled = ["govet", "golint"]
 " }}}
-" let g:go_highlight_structs = 1
+let g:go_highlight_structs = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_operators = 1

@@ -19,6 +19,7 @@ autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 
 call plug#begin('~/.vim/plugged')
 Plug 'alvan/vim-closetag'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale' "syntax error highlighting
 Plug 'fatih/vim-go', {
@@ -81,7 +82,7 @@ let g:plug_window = 'noautocmd vertical topleft new'
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'deep_space',
+      \ 'colorscheme': 'monokai',
       \ }
 
 " remove default '-- INSERT --' because it's in the line
@@ -133,11 +134,9 @@ set foldmethod=indent
 set foldlevel=99
 set encoding=utf-8
 "
-set background=dark
 set termguicolors
-colorscheme deep-space
-let g:deepspace_italics=1
-"colorscheme custom-molokai
+"colorscheme dracula
+colorscheme custom-molokai
 
 " Turn of swap files
 set noswapfile
