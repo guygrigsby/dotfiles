@@ -88,10 +88,10 @@ call Color('Label', s:verypurple)
 call Color('Macro', s:white)
 call Color('SpecialKey', s:teal)
 
-hi MatchParen      ctermfg=233  ctermbg=208 cterm=bold
+call Color('MatchParen', s:red, s:none, 'bold')
 call Color('ModeMsg', s:hotpink)
 call Color('MoreMsg', s:hotpink)
-hi Operator        ctermfg=69
+call Color('Operator', s:teal)
 
 " complete menu
 call Color('Pmenu', s:plum, s:black)

@@ -19,7 +19,6 @@ autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 
 call plug#begin('~/.vim/plugged')
 Plug 'alvan/vim-closetag'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale' "syntax error highlighting
 Plug 'fatih/vim-go', {
@@ -29,6 +28,7 @@ Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'guygrigsby/vim-scratch'
 Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() } }
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -37,7 +37,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'preservim/nerdtree'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim',
       \ { 'for': 'rust' }
@@ -81,9 +80,9 @@ let g:plug_window = 'noautocmd vertical topleft new'
 
 
 " lightline
-let g:lightline = {
-      \ 'colorscheme': 'monokai',
-      \ }
+"let g:lightline = {
+"      \ 'colorscheme': 'piccolo',
+      "\ }
 
 " remove default '-- INSERT --' because it's in the line
 set noshowmode
@@ -135,8 +134,7 @@ set foldlevel=99
 set encoding=utf-8
 "
 set termguicolors
-"colorscheme dracula
-colorscheme custom-molokai
+colorscheme piccolo
 
 " Turn of swap files
 set noswapfile
