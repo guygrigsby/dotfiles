@@ -21,6 +21,7 @@ let s:verypurple = ['#af00ff',169]
 let s:darkpurple = [ '#380549', 128 ]
 let s:lightpink = [ '#ffd7ff', 225 ]
 let s:lightcyan = [ '#cff1ef', 230 ]
+let s:lightgreen = [ '#cfdac8', 230 ]
 let s:pink = [ '#d7005f', 161 ]
 let s:steelblue = [ '#5fd7ff', 81 ]
 let s:blue = [ '#8470FF', 99 ]
@@ -53,9 +54,9 @@ function! Color(group, ...)
 endfunction
 
 call Color('vimCommand', s:hotpink)
-call Color('Normal', s:lightcyan, s:black)
-call Color('CursorLine', s:white, s:black)
-call Color('CursorLineNr', s:white, s:black)
+call Color('Normal', s:blue, s:black)
+call Color('CursorLine', s:white, s:warmpurple)
+call Color('CursorLineNr', s:white, s:warmpurple)
 call Color('Keyword', s:hotpink)
 call Color('Boolean', s:mediumpurple)
 call Color('Character', s:mediumpurple)
@@ -83,7 +84,7 @@ call Color('Function', s:teal)
 call Color('Identifier', s:hotpink)
 call Color('Ignore', s:black, s:teal)
 call Color('Ignore', s:grey, s:purple)
-call Color('keywork', s:verypurple, s:none, 'bold')
+call Color('Keyword', s:verypurple, s:none, 'bold')
 call Color('Label', s:verypurple)
 call Color('Macro', s:white)
 call Color('SpecialKey', s:teal)
@@ -101,11 +102,11 @@ call Color('PreCondit', s:hotpink, s:black, 'bold')
 call Color('PreProc', s:hotpink)
 call Color('Question', s:hotpink)
 call Color('Repeat', s:hotpink)
-call Color('Search', s:black, s:lightpink, 'bold')
+call Color('Search', s:black, s:warmpurple, 'bold')
 " marks column
 call Color('SignColumn', s:hotpink, s:black)
 call Color('SpecialChar', s:steelblue, s:black, 'bold')
-call Color('SpecialComment', s:hotpink, s:black, 'bold')
+call Color('SpecialComment', s:plum, s:black, 'bold')
 call Color('Special', s:steelblue)
 if has("spell")
   call Color('SpellBad', s:none, s:none, 'undercurl')
@@ -113,6 +114,7 @@ if has("spell")
   hi SpellLocal              ctermbg=17
   hi SpellRare  ctermfg=none ctermbg=none  cterm=reverse
 endif
+call Color('Statement', s:warmpurple)
 call Color('StatusLine', s:teal, s:none, 'undercurl')
 call Color('StatusLineNC', s:white, s:teal)
 call Color('StorageClass', s:steelblue)
@@ -121,7 +123,7 @@ call Color('Tag', s:steelblue)
 call Color('Title', s:hotpink)
 call Color('Todo', s:white, s:black, 'bold')
 call Color('TypeDef', s:steelblue, s:black, 'bold')
-call Color('Type', s:verypurple, s:black)
+call Color('Type', s:warmpurple, s:black)
 call Color('Underline', s:plum, s:none, 'underline')
 call Color('VertSplit', s:warmpurple, s:none, 'bold')
 call Color('VisualNOS', s:black, s:grey)

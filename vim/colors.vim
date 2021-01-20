@@ -51,6 +51,6 @@ function! Color(group, ...)
   execute tui
 endfunction
 
-"call Color('Type', s:pink)
+"call Color('Type', s:warmpurple)
 "call Color('Statement', s:hotpink)
 "call Color('Special', s:steelblue)
