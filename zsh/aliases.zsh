@@ -22,7 +22,6 @@ alias tmp='cd ~/go/src/tmp'
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
-alias vim='nvim'
 alias vrc="vim $DOTFILES/vim"
 alias zrc="vim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && . ~/.zshrc"
 alias lrc="vim ~/.localrc"
@@ -34,5 +33,3 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 alias op='cd $GG/vim-opine && vim -O indent/toml.vim sample.toml'
-alias asl='cd ~/generalassembly'
-alias gasly='cd ~/generalassembly'

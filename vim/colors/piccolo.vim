@@ -50,10 +50,11 @@ function! Color(group, ...)
   execute gui
   execute tui
 endfunction
+
+call Color('vimCommand', s:hotpink)
 call Color('Normal', s:lightgrey, s:black)
 call Color('CursorLine', s:none, s:black)
 call Color('Keyword', s:hotpink)
-"hi CursorLine               ctermbg=234   cterm=none
 hi CursorLineNr ctermfg=208               cterm=none
 call Color('Boolean', s:mediumpurple)
 hi Character       ctermfg=144
@@ -67,10 +68,10 @@ hi Debug           ctermfg=225               cterm=bold
 call Color('Define', s:steelblue, s:none)
 hi Delimiter       ctermfg=241
 
-call Color('DiffAdd', s:black, s:plum)
-call Color('DiffDelete', s:darkpurple, s:lightgrey)
-call Color('DiffChange', s:ultrablack, s:lightgrey)
-call Color('DiffText', s:grey, s:lightgrey)
+call Color('DiffAdd', s:black, s:teal)
+call Color('DiffDelete', s:white, s:red)
+call Color('DiffChange', s:hotpink, s:ultrablack)
+call Color('DiffText', s:white, s:black)
 
 call Color('Directory', s:purple, s:black, 'bold')
 call Color('Error', s:lightpink, s:ultrablack)
@@ -89,9 +90,8 @@ call Color('Macro', s:white)
 call Color('SpecialKey', s:teal)
 
 call Color('MatchParen', s:red, s:none, 'bold')
-call Color('ModeMsg', s:hotpink)
 call Color('MoreMsg', s:hotpink)
-call Color('Operator', s:teal)
+call Color('Operator', s:red)
 
 " complete menu
 call Color('Pmenu', s:plum, s:black)
@@ -101,12 +101,12 @@ hi PmenuThumb      ctermfg=81
 
 hi PreCondit       ctermfg=123               cterm=bold
 hi PreProc         ctermfg=123
-hi Question        ctermfg=81
+call Color('Question', s:hotpink)
 call Color('Repeat', s:hotpink)
 call Color('Search', s:black, s:lightpink, 'bold')
 " marks column
 hi SignColumn      ctermfg=123 ctermbg=235
-hi SpecialChar     ctermfg=161               cterm=bold
+call Color('SpecialChar', s:steelblue, s:black, 'bold')
 hi SpecialComment  ctermfg=245               cterm=bold
 call Color('Special', s:steelblue)
 if has("spell")
@@ -115,33 +115,29 @@ if has("spell")
   hi SpellLocal              ctermbg=17
   hi SpellRare  ctermfg=none ctermbg=none  cterm=reverse
 endif
-  call Color('StatusLine', s:teal, s:none, 'undercurl')
-  call Color('SpellBad', s:none, s:none, 'undercurl')
-hi StatusLine      ctermfg=238 ctermbg=253
+call Color('StatusLine', s:teal, s:none, 'undercurl')
 hi StatusLineNC    ctermfg=244 ctermbg=232
-"hi StorageClass    ctermfg=104
-"hi Structure       ctermfg=81
-"hi Tag             ctermfg=161
-"hi Title           ctermfg=166
-"hi Todo            ctermfg=231 ctermbg=232   cterm=bold
-"
+call Color('StorageClass', s:steelblue)
+hi Structure       ctermfg=81
+hi Tag             ctermfg=161
+hi Title           ctermfg=166
+call Color('Todo', s:black, s:plum, 'bold')
 call Color('TypeDef', s:steelblue, s:black, 'bold')
-call Color('Type', s:steelblue)
+hi Type            guifg=#66D9EF               gui=none
+"call Color('Type', s:steelblue)
 call Color('Underline', s:plum, s:none, 'underline')
+call Color('VertSplit', s:warmpurple, s:none, 'bold')
 "
-"hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
-"hi VisualNOS                   ctermbg=238
-"hi Visual                      ctermbg=235
-"hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
-"hi WildMenu        ctermfg=81  ctermbg=16
+hi VisualNOS                   ctermbg=238
+hi Visual                      ctermbg=235
+hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
+hi WildMenu        ctermfg=81  ctermbg=16
 call Color('Comment', s:grey)
 hi CursorColumn                ctermbg=236
 hi ColorColumn                 ctermbg=236
-
 call Color('LineNr', s:grey, s:black)
 hi NonText         ctermfg=59
-
-hi Include         ctermfg=153
+call Color('Include', s:hotpink)
 
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ

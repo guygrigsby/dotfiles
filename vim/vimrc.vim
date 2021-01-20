@@ -25,6 +25,7 @@ Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
 Plug '$GG/vim-opine', { 'for': 'toml' }
+Plug 'gko/vim-coloresque'
 Plug 'guygrigsby/vim-scratch'
 Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() } }
@@ -33,6 +34,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
+Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -52,7 +54,8 @@ Plug 'xolox/vim-notes'
 "--------------}}}}}}}}}}}} Plug
 call plug#end()
 filetype plugin indent on
-syntax on
+set background=dark
+syntax enable
 
 nmap <leader>t :UnitTest <CR>
 nmap <C-p> :Files <CR>
@@ -75,6 +78,7 @@ let g:NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p'}, 'dir': {
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks=1
 " prevent crashing with NERDtree and Plug
 let g:plug_window = 'noautocmd vertical topleft new'
 
@@ -136,7 +140,7 @@ set encoding=utf-8
 set termguicolors
 colorscheme piccolo
 
-" Turn of swap files
+" Turn off swap files
 set noswapfile
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
@@ -191,8 +195,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 let g:notes_directories = ['~/Google Drive/notes']
 
 "{{{ ---------------------------_YCM-----------------------------------------
-nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>dv :leftabove vertical YcmCompleter GoTo<CR>
+"nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>dv :leftabove vertical YcmCompleter GoTo<CR>
 let g:ycm_goto_buffer_command="split"
 let g:ycm_auto_trigger = 1
 let g:ycm_python_interpreter_path = ''
