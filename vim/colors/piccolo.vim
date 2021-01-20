@@ -20,6 +20,7 @@ let s:purple = [ '#8787d7', 104 ]
 let s:verypurple = ['#af00ff',169]
 let s:darkpurple = [ '#380549', 128 ]
 let s:lightpink = [ '#ffd7ff', 225 ]
+let s:lightcyan = [ '#cff1ef', 230 ]
 let s:pink = [ '#d7005f', 161 ]
 let s:steelblue = [ '#5fd7ff', 81 ]
 let s:blue = [ '#8470FF', 99 ]
@@ -52,38 +53,36 @@ function! Color(group, ...)
 endfunction
 
 call Color('vimCommand', s:hotpink)
-call Color('Normal', s:lightgrey, s:black)
-call Color('CursorLine', s:none, s:black)
+call Color('Normal', s:lightcyan, s:black)
+call Color('CursorLine', s:white, s:black)
+call Color('CursorLineNr', s:white, s:black)
 call Color('Keyword', s:hotpink)
-hi CursorLineNr ctermfg=208               cterm=none
 call Color('Boolean', s:mediumpurple)
-hi Character       ctermfg=144
+call Color('Character', s:mediumpurple)
 call Color('Number', s:mediumpurple)
 call Color('String', s:plum)
 call Color('Float', s:warmpurple)
 call Color('Conditional', s:steelblue, s:black, 'bold')
 call Color('Constant', s:mediumpurple, s:black, 'bold')
-hi Cursor          ctermfg=16  ctermbg=253
-hi Debug           ctermfg=225               cterm=bold
+call Color('Cursor', s:white, s:black)
+call Color('Debug', s:black, s:steelblue, 'bold')
 call Color('Define', s:steelblue, s:none)
-hi Delimiter       ctermfg=241
-
+call Color('Delimiter', s:violet)
 call Color('DiffAdd', s:black, s:teal)
 call Color('DiffDelete', s:white, s:red)
 call Color('DiffChange', s:hotpink, s:ultrablack)
 call Color('DiffText', s:white, s:black)
 
 call Color('Directory', s:purple, s:black, 'bold')
-call Color('Error', s:lightpink, s:ultrablack)
-hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
-hi Exception       ctermfg=123               cterm=bold
-hi FoldColumn      ctermfg=67  ctermbg=16
-hi Folded          ctermfg=67  ctermbg=16
-call Color('Function', s:purple)
+call Color('Error', s:lightpink, s:black)
+call Color('ErrorMsg', s:white, s:red, 'bold')
+call Color('Exception', s:white, s:red, 'bold')
+call Color('FoldColumn', s:white, s:darkpurple)
+call Color('Folded', s:white, s:darkpurple)
+call Color('Function', s:teal)
 call Color('Identifier', s:hotpink)
-hi Ignore          ctermfg=244 ctermbg=232
-hi IncSearch       ctermfg=193 ctermbg=16
-
+call Color('Ignore', s:black, s:teal)
+call Color('Ignore', s:grey, s:purple)
 call Color('keywork', s:verypurple, s:none, 'bold')
 call Color('Label', s:verypurple)
 call Color('Macro', s:white)
@@ -96,18 +95,17 @@ call Color('Operator', s:red)
 " complete menu
 call Color('Pmenu', s:plum, s:black)
 call Color('PmenuSel', s:darkpurple, s:lightgrey)
-hi PmenuSbar                   ctermbg=232
-hi PmenuThumb      ctermfg=81
-
-hi PreCondit       ctermfg=123               cterm=bold
-hi PreProc         ctermfg=123
+call Color('PmenuSbar', s:pink, s:darkpurple)
+call Color('PmenuThumb', s:hotpink)
+call Color('PreCondit', s:hotpink, s:black, 'bold')
+call Color('PreProc', s:hotpink)
 call Color('Question', s:hotpink)
 call Color('Repeat', s:hotpink)
 call Color('Search', s:black, s:lightpink, 'bold')
 " marks column
-hi SignColumn      ctermfg=123 ctermbg=235
+call Color('SignColumn', s:hotpink, s:black)
 call Color('SpecialChar', s:steelblue, s:black, 'bold')
-hi SpecialComment  ctermfg=245               cterm=bold
+call Color('SpecialComment', s:hotpink, s:black, 'bold')
 call Color('Special', s:steelblue)
 if has("spell")
   call Color('SpellBad', s:none, s:none, 'undercurl')
@@ -116,27 +114,25 @@ if has("spell")
   hi SpellRare  ctermfg=none ctermbg=none  cterm=reverse
 endif
 call Color('StatusLine', s:teal, s:none, 'undercurl')
-hi StatusLineNC    ctermfg=244 ctermbg=232
+call Color('StatusLineNC', s:white, s:teal)
 call Color('StorageClass', s:steelblue)
-hi Structure       ctermfg=81
-hi Tag             ctermfg=161
-hi Title           ctermfg=166
-call Color('Todo', s:black, s:plum, 'bold')
+call Color('Structure', s:warmpurple)
+call Color('Tag', s:steelblue)
+call Color('Title', s:hotpink)
+call Color('Todo', s:white, s:black, 'bold')
 call Color('TypeDef', s:steelblue, s:black, 'bold')
-hi Type            guifg=#66D9EF               gui=none
-"call Color('Type', s:steelblue)
+call Color('Type', s:verypurple, s:black)
 call Color('Underline', s:plum, s:none, 'underline')
 call Color('VertSplit', s:warmpurple, s:none, 'bold')
-"
-hi VisualNOS                   ctermbg=238
-hi Visual                      ctermbg=235
-hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
-hi WildMenu        ctermfg=81  ctermbg=16
+call Color('VisualNOS', s:black, s:grey)
+call Color('Visual', s:black, s:grey)
+call Color('WarningMsg', s:white, s:teal, 'bold')
+call Color('WildMenu', s:white, s:darkpurple, 'bold')
 call Color('Comment', s:grey)
-hi CursorColumn                ctermbg=236
-hi ColorColumn                 ctermbg=236
+call Color('CursorColumn', s:black, s:hotpink)
+call Color('ColorColumn', s:black, s:warmpurple)
 call Color('LineNr', s:grey, s:black)
-hi NonText         ctermfg=59
+call Color('NonText', s:verypurple)
 call Color('Include', s:hotpink)
 
 " Must be at the end, because of ctermbg=234 bug.
