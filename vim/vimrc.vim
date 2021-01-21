@@ -25,6 +25,7 @@ Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
 Plug '$GG/vim-opine', { 'for': 'toml' }
+Plug '$GG/piccolo'
 Plug 'gko/vim-coloresque'
 Plug 'guygrigsby/vim-scratch'
 Plug 'iamcco/markdown-preview.nvim',
@@ -55,7 +56,7 @@ Plug 'xolox/vim-notes'
 call plug#end()
 filetype plugin indent on
 set background=dark
-syntax enable
+syntax on
 
 nmap <leader>t :UnitTest <CR>
 nmap <C-p> :Files <CR>

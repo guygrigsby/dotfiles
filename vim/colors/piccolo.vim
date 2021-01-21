@@ -29,6 +29,7 @@ let s:violet = [ '#eeccff', 177 ]
 let s:plum = [ '#d7afff', 183 ]
 let s:red = [ '#ff0000', 196 ]
 let s:warmpurple = [ '#DA10AC', 165 ]
+let s:fuchsia = [ '#FF00FF', 13 ]
 
 function! Color(group, ...)
   let gui = 'hi ' . a:group
@@ -81,17 +82,16 @@ call Color('Exception', s:white, s:red, 'bold')
 call Color('FoldColumn', s:white, s:darkpurple)
 call Color('Folded', s:white, s:darkpurple)
 call Color('Function', s:teal)
-call Color('Identifier', s:hotpink)
+call Color('Identifier', s:warmpurple)
 call Color('Ignore', s:black, s:teal)
 call Color('Ignore', s:grey, s:purple)
 call Color('Keyword', s:verypurple, s:none, 'bold')
 call Color('Label', s:verypurple)
 call Color('Macro', s:white)
-call Color('SpecialKey', s:teal)
 
 call Color('MatchParen', s:red, s:none, 'bold')
 call Color('MoreMsg', s:hotpink)
-call Color('Operator', s:red)
+call Color('Operator', s:fuchsia)
 
 " complete menu
 call Color('Pmenu', s:plum, s:black)
@@ -105,14 +105,15 @@ call Color('Repeat', s:hotpink)
 call Color('Search', s:black, s:warmpurple, 'bold')
 " marks column
 call Color('SignColumn', s:hotpink, s:black)
-call Color('SpecialChar', s:steelblue, s:black, 'bold')
-call Color('SpecialComment', s:plum, s:black, 'bold')
-call Color('Special', s:steelblue)
+call Color('Special', s:fuchsia)
+call Color('SpecialChar', s:fuchsia, s:black, 'bold')
+call Color('SpecialComment', s:fuchsia, s:black, 'bold')
+call Color('SpecialKey', s:fuchsia)
 if has("spell")
   call Color('SpellBad', s:none, s:none, 'undercurl')
-  hi SpellCap                ctermbg=17
-  hi SpellLocal              ctermbg=17
-  hi SpellRare  ctermfg=none ctermbg=none  cterm=reverse
+  call Color('SpellCap', s:none, s:darkpurple)
+  call Color('SpellLocal', s:none, s:darkpurple)
+  call Color('SpellRare', s:none, s:none, 'reverse')
 endif
 call Color('Statement', s:warmpurple)
 call Color('StatusLine', s:teal, s:none, 'undercurl')
@@ -122,9 +123,9 @@ call Color('Structure', s:warmpurple)
 call Color('Tag', s:steelblue)
 call Color('Title', s:hotpink)
 call Color('Todo', s:white, s:black, 'bold')
-call Color('TypeDef', s:steelblue, s:black, 'bold')
 call Color('Type', s:warmpurple, s:black)
-call Color('Underline', s:plum, s:none, 'underline')
+call Color('TypeDef', s:steelblue, s:black, 'bold')
+call Color('Underline', s:fuchsia, s:none, 'underline')
 call Color('VertSplit', s:warmpurple, s:none, 'bold')
 call Color('VisualNOS', s:black, s:grey)
 call Color('Visual', s:black, s:grey)
@@ -135,7 +136,7 @@ call Color('CursorColumn', s:black, s:hotpink)
 call Color('ColorColumn', s:black, s:warmpurple)
 call Color('LineNr', s:grey, s:black)
 call Color('NonText', s:verypurple)
-call Color('Include', s:hotpink)
+call Color('Include', s:fuchsia, s:black, 'italic')
 
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
