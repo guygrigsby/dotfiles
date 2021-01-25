@@ -10,13 +10,15 @@ vim ./$1.sh
 
 function flop () {
 	if [[ "$HOME" = "/Users/guy" ]]; then
-	# Work is 17
-		loc=17
-	else
+	echo "@work switching to home"
 	#Home is 15
 		loc=15
+	else
+	echo "@home switching to work"
+	# Work is 27
+		loc=27
 	fi
-	ddcctl -d 1 -i $loc
+	$HOME/scripts/ddcctl -d 1 -i $loc
 }
 
 function yolo () {
