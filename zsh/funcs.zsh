@@ -8,11 +8,22 @@ EOF
 vim ./$1.sh
 }
 
+function flop () {
+	if [[ "$HOME" = "/Users/guy" ]]; then
+	# Work is 17
+		loc=17
+	else
+	#Home is 15
+		loc=15
+	fi
+	ddcctl -d 1 -i $loc
+}
+
 function yolo () {
 	if [ -n "$1" ]; then
 		git commit -am "$1"
-	else	
-		git commit -av 
+	else
+		git commit -av
 	fi
 	git push
 
@@ -69,8 +80,7 @@ function kswitch () {
 	cp kubectl /usr/local/bin/
 	cd -
 }
-function smoosh () { 
+function smoosh () {
 	local IFS=""
 	echo "$*"
 }
-
