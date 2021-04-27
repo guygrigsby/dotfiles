@@ -28,6 +28,8 @@ let g:ale_sign_style_warning = '--'
 let g:ale_set_highlights = 1
 let g:ale_set_loclist = 1
 let g:ale_set_quickfix = 1
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#trailing_comma = 'all'
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -69,6 +71,8 @@ let g:closetag_shortcut = '>'
 
 
 nnoremap <leader>r :term node % <CR>
+nnoremap <leader>t :term yarn test --watchAll=false<CR>
+nnoremap <leader>wd :term yarn wd<CR>
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 

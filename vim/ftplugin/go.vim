@@ -26,18 +26,16 @@ let g:ale_fix_on_save = 0
 " For running goimports on save
 let g:go_fmt_command ="goimports"
 let g:go_fmt_options = {
-      \ 'gofmt': '-s',
+      \ 'gofumpmt': '-s',
       \ 'goimports': '-local github.com/nytimes',
       \ }
 let g:go_term_enabled = 0
 let g:go_term_mode = "split"
-let g:go_build_tags = "integration,example"
+let g:go_build_tags = "integration,test,webhook"
 " GoMetaLinter settings
-let g:go_metalinter_autosave = 0
+let g:go_metalinter_command='golangci-lint run --build-tags test,webhook,integration'
+let g:go_metalinter_autosave = 1
 let g:go_list_type = 'quickfix'
-let g:go_metalinter_enabled = ["govet", "golint"]
-let g:go_metalinter_autosave_enabled = ["govet", "golint"]
-" }}}
 let g:go_highlight_structs = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1

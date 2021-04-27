@@ -18,8 +18,6 @@ endif
 autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 
 call plug#begin('~/.vim/plugged')
-Plug 'alvan/vim-closetag'
-Plug 'itchyny/lightline.vim'
 Plug 'dense-analysis/ale' "syntax error highlighting
 Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
@@ -30,7 +28,6 @@ Plug 'gko/vim-coloresque'
 Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }
 Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() } }
-Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -42,7 +39,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'preservim/nerdtree'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'rust-lang/rust.vim',
       \ { 'for': 'rust' }
 Plug 'skywind3000/asyncrun.vim'
@@ -75,7 +72,12 @@ nmap <C-p> :Files <CR>
 "
 " terminal
 let termwinsize = 10*0
-
+" ag.vim is deprecated
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 " Open Nerdtree on start if a directory is chosen
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | wincmd w | endif
@@ -88,15 +90,6 @@ let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 " prevent crashing with NERDtree and Plug
 let g:plug_window = 'noautocmd vertical topleft new'
-
-
-" lightline
-"let g:lightline = {
-"      \ 'colorscheme': 'piccolo',
-      "\ }
-
-" remove default '-- INSERT --' because it's in the line
-set noshowmode
 
 "{{{ magic setting for sane regex -----------------------
 "nnoremap / /\v
@@ -171,7 +164,9 @@ set backspace=indent,eol,start
 set autoindent
 set nostartofline
 set ruler
-"set laststatus=2
+set laststatus=2
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+"set statusline+=%N%t%=(%y%V)
 set confirm
 set novisualbell
 set mouse=
@@ -271,3 +266,10 @@ function! DoPrettyXML()
   " restore the filetype
   exe "set ft=" . l:origft
 endfunction
+
+function! EnderDrop()
+  execute "normal! G\o\"vim: sw=2 ts=2 et\<Esc>"
+endfunction<CR>
+
+nnoremap <silent> <Leader>ed :call EnderDrop()<CR>
+"vim: sw=2 ts=2 et

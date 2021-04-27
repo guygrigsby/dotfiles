@@ -54,14 +54,22 @@ function docker-cleanup () {
 	docker rm $(docker ps -a -q)
 	docker rmi $(docker images -q) --force
 }
-function got () {
 
+function got_helper () {
 	pushd .
 	cd $GOPATH/src/tmp/gen
 	d=`date +%s`
 	mkdir $d
 	cd $d
 	echo 'package main\n\nfunc main() {\n\tprintln("test")\n}' >> main.go
+}
+function got () {
+	got_helper
+	go mod init
+	vim main.go -O
+}
+function gott () {
+	got_helper
 	echo 'package main\nimport "testing"\n\nfunc TestMain(t *testing.T) {\n}' >> main_test.go
 	go mod init
 	vim main_test.go main.go -O

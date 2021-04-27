@@ -25,7 +25,7 @@ alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
 alias vrc="vim $DOTFILES/vim"
-alias zrc="vim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && . ~/.zshrc"
+alias zrc="vim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && exec zsh"
 alias lrc="vim ~/.localrc"
 alias .z='. ~/.zshrc'
 alias .l='. ~/.localrc'
@@ -37,3 +37,4 @@ alias ....="cd ../../.."
 alias op='cd $GG/vim-opine && vim -O indent/toml.vim sample.toml'
 
 alias nuget="mono /usr/local/bin/nuget.exe"
+alias pip=pip3
