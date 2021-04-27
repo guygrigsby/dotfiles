@@ -23,7 +23,7 @@ Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
 Plug '$GG/vim-opine', { 'for': 'toml' }
-Plug 'guygrigsby/piccolo'
+Plug 'guygrigsby/piccolo', { 'branch': 'main' }
 Plug 'gko/vim-coloresque'
 Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }
 Plug 'iamcco/markdown-preview.nvim',
