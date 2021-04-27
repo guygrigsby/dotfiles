@@ -27,7 +27,7 @@ Plug 'fatih/vim-go', {
 Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'guygrigsby/piccolo'
 Plug 'gko/vim-coloresque'
-Plug 'guygrigsby/vim-scratch'
+Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }
 Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() } }
 Plug 'itchyny/lightline.vim'
@@ -35,7 +35,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
+Plug 'mattn/emmet-vim'
 Plug 'moll/vim-node'
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -47,7 +49,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'stevearc/vim-arduino'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') } "autocomplete
+Plug 'ycm-core/YouCompleteMe'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 
@@ -57,9 +59,13 @@ call plug#end()
 filetype plugin indent on
 set background=dark
 syntax on
+set spell spelllang=en_us
+set spellfile =~/.vim/spell/en.utf-8.add
+
 
 nmap <leader>t :UnitTest <CR>
 nmap <C-p> :Files <CR>
+"let g:user_emmet_leader_key='<C-Z>,'
 
 " Install missing plugins on vim open
 "autocmd VimEnter *
@@ -106,13 +112,13 @@ let g:ale_fixers = {
       \   '*'         : ['remove_trailing_lines', 'trim_whitespace'],
       \   'javascript': ['prettier'],
       \   'css': ['prettier'],
-      \   'html': ['prettier'],
       \   'c': ['prettier'],
       \   'ino': ['prettier']
       \}
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
-      \ 'go'        : ['golangci-lint']
+      \ 'go'        : ['golangci-lint'],
+      \ 'cs'        : ['OmniSharp']
       \}
 let g:ale_go_golangci_lint_options = '--fast'
 let g:ale_fix_on_save = 1
@@ -121,7 +127,7 @@ let g:ale_sign_style_error = '>>'
 let g:ale_sign_style_warning = '--'
 let g:ale_set_highlights = 1
 let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+"let g:ale_set_quickfix = 1
 
 
 
@@ -152,14 +158,6 @@ set noswapfile
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
-
-" spellcheck
-set spell spelllang=en_us
-let s:spfile = $HOME . fnameescape('/Google Drive/vim/spell/en.utf-8.add')
-if !empty(glob(s:spfile))
-  set spellfile = s:spfile
-endif
-
 
 " Autoload files when changed
 " set autoread
@@ -246,3 +244,30 @@ function! RunCommandInBuffer(cmd)
 endfunction
 
 command! -nargs=+ -complete=command BuffList call RunCommandInBuffer(<q-args>)
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction

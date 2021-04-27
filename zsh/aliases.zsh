@@ -1,9 +1,11 @@
 alias white='cd /Users/guygrigsby/go/src/github.com/guygrigsby/whitelist'
 
-alias gclum='git checkout master && git pull upstream master'
-alias gclom='git checkout master && git pull origin master'
-alias glom='git pull origin master'
+alias gclum='git checkout main && git pull upstream main'
+alias gclom='git checkout main && git pull origin main'
+alias glom='git pull origin main'
 alias rup='git remote rename origin upstream'
+
+alias gss='git status -s'
 
 alias ls='ls -G'
 alias l='ls -lG'
@@ -33,3 +35,5 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 alias op='cd $GG/vim-opine && vim -O indent/toml.vim sample.toml'
+
+alias nuget="mono /usr/local/bin/nuget.exe"

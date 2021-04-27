@@ -18,3 +18,4 @@ SAVEHIST=10000               #Number of history entries to save to disk
 setopt    APPEND_HISTORY     #Append history to the history file (no overwriting)
 setopt    SHARE_HISTORY      #Share history across terminals
 setopt    INC_APPEND_HISTORY  #Immediately append to the history file, not just when a term is killed
+

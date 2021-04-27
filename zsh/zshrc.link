@@ -3,8 +3,7 @@
 #
 #set -exuo pipefail
 
-export EDITOR='nvim'
-export VISUAL='vimr --nvim'
+export EDITOR='vim'
 
 autoload -U colors; colors
 #
@@ -50,3 +49,6 @@ bindkey '^[[Z' reverse-menu-complete
 [ -f ~/.localrc ] && . ~/.localrc
 
 #zprof
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

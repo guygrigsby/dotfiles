@@ -12,7 +12,7 @@ nmap <Leader>ds <Plug>(go-def-split)
 nmap <Leader>db <Plug>(go-doc-browser-browser)
 nmap <Leader>gd <Plug>(go-doc)
 nmap <leader>tt <Plug>(go-test)
-nmap <leader>t :GoTestFunc
+nmap <leader>t :GoTestFunc <CR>
 nmap <Leader>gd <Plug>(go-doc)
 nmap <Leader>s <Plug>(go-implements)
 nmap <Leader>gg <Plug>(go-import)
