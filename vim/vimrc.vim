@@ -18,7 +18,7 @@ endif
 autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 
 call plug#begin('~/.vim/plugged')
-Plug 'dense-analysis/ale' "syntax error highlighting
+Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
@@ -46,6 +46,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'stevearc/vim-arduino'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'w0rp/ale'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -153,9 +154,9 @@ set noswapfile
 set nocompatible
 
 " Autoload files when changed
-" set autoread
+set autoread
 " save on buffer change
-" set autowriteall
+"set autowriteall
 
 set wildmenu
 set showcmd

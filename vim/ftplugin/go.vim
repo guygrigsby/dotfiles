@@ -1,7 +1,7 @@
 function! s:build_go_files()
   let l:file = expand('%')
   if l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
+    call go#cmd#Build(1)
   elseif l:file =~# '^\f\+_test\.go$'
     call go#cmd#Test(0, 1)
   endif
@@ -33,8 +33,8 @@ let g:go_term_enabled = 0
 let g:go_term_mode = "split"
 let g:go_build_tags = "integration,test,webhook"
 " GoMetaLinter settings
-let g:go_metalinter_command='golangci-lint run --build-tags test,webhook,integration'
-let g:go_metalinter_autosave = 1
+"let g:go_metalinter_command='golangci-lint run --build-tags test,webhook,integration'
+"let g:go_metalinter_autosave = 1
 let g:go_list_type = 'quickfix'
 let g:go_highlight_structs = 1
 let g:go_highlight_methods = 1

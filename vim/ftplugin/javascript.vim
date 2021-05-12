@@ -15,6 +15,8 @@ set expandtab
 autocmd FileType qf setlocal wrap
 let g:ale_fixers = {
       \   'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+      \   'js': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+      \   'jsx': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
       \   'css': ['prettier'],
       \   'html': ['prettier'],
       \}

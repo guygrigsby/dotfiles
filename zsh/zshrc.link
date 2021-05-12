@@ -51,4 +51,3 @@ bindkey '^[[Z' reverse-menu-complete
 #zprof
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
