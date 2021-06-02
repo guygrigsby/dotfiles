@@ -46,7 +46,14 @@ unset config_files updated_at
 bindkey -v
 bindkey '^[[Z' reverse-menu-complete
 
-[ -f ~/.localrc ] && . ~/.localrc
+# local all of the machine specific stuff last
+typeset -U local_configs
+local_configs=($HOME/.localrc/*.zsh)
+for file in ${(M)local_configs:#*.zsh}; do
+  source "$file"
+done
+
+
 
 #zprof
 
