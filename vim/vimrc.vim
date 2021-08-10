@@ -18,22 +18,25 @@ endif
 autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 
 call plug#begin('~/.vim/plugged')
-Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
 Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'guygrigsby/piccolo', { 'branch': 'main' }
-Plug 'gko/vim-coloresque'
 Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }
 Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() } }
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
+Plug 'mattn/pastebin-vim'
 Plug 'moll/vim-node'
+"--------------}}}}}}}}}}}} Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+"--------------}}}}}}}}}}}} Telescope
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
@@ -58,11 +61,14 @@ filetype plugin indent on
 set background=dark
 syntax on
 set spell spelllang=en_us
-set spellfile =~/.vim/spell/en.utf-8.add
+
+let gt='$HOME/dotfiles/vim/gutentags.vim'
+
 
 
 nmap <leader>t :UnitTest <CR>
-nmap <C-p> :Files <CR>
+nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
+"nmap <C-p> :Files <CR>
 "let g:user_emmet_leader_key='<C-Z>,'
 
 " Install missing plugins on vim open
@@ -182,9 +188,12 @@ set clipboard+=unnamed
 
 "gotags and tagbar {{{ ----------------------------------
 """
-let gt=$HOME . '/dotfiles/vim/gutentags.vim'
-exec 'source ' . gt
+let gt='$HOME/dotfiles/vim/gutentags.vim'
+if filereadable(gt)
+  source gt
+endif
 
+source ~/.localrc/vim/local.vim
 
 " misc {{{ -------------------------------
 "
@@ -273,4 +282,5 @@ function! EnderDrop()
 endfunction<CR>
 
 nnoremap <silent> <Leader>ed :call EnderDrop()<CR>
+nnoremap <Leader>pp :make up <CR>
 "vim: sw=2 ts=2 et

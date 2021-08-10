@@ -53,8 +53,4 @@ for file in ${(M)local_configs:#*.zsh}; do
   source "$file"
 done
 
-
-
 #zprof
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

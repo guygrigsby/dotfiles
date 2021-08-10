@@ -5,7 +5,7 @@ function bs () {
 
 set -euo pipefail
 EOF
-vim ./$1.sh
+vim $1.sh
 }
 
 function flop () {

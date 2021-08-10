@@ -6,7 +6,7 @@ export DOTFILES=$HOME/dotfiles
 # Maybe I should move these to Google Drive
 ln -s $DOTFILES/vim/vimrc.vim $HOME/.vimrc
 ln -s $DOTFILES/git/gitignore.link $HOME/.gitignore
-ln -s $DOTFILES/git/gitconfig.link $HOME/.gitconfig
+ln -s $DOTFILES/git/config $HOME/.gitconfig
 ln -s $DOTFILES/zsh/zshrc.link $HOME/.zshrc
 ln -s $DOTFILES/.zshrc $HOME/.zshrc
 ln -s $DOTFILES/git $HOME/.config/git
