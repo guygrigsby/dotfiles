@@ -26,9 +26,9 @@ alias gome=' cd ~/go/src'
 
 alias vim=nvim
 alias vi=nvim
-alias vrc="vim $DOTFILES/vim"
-alias zrc="vim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && exec zsh"
-alias lrc="vim ~/.localrc"
+alias vrc="nvim $DOTFILES/vim"
+alias zrc="nvim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && exec zsh"
+alias lrc="nvim ~/.localrc"
 alias .z='. ~/.zshrc'
 alias .l='. ~/.localrc'
 

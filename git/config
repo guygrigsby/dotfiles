@@ -6,7 +6,7 @@
 	insteadOf = https://github.com/guygrigsby
 [core]
 	excludesfile = /Users/guy/dotfiles/git/gitignore.link
-	editor = vim
+	editor = nvim
 [color]
 	ui = true
 [mergetool "fugitive"]
