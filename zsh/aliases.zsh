@@ -7,9 +7,9 @@ alias rup='git remote rename origin upstream'
 
 alias gss='git status -s'
 
-alias ls='ls -G'
-alias l='ls -lG'
-alias ll='ls -lah'
+alias ls='ls -G --color=auto'
+alias l='ls -lG --color=auto'
+alias ll='ls -lah --color=auto'
 
 alias k='kubectl'
 alias kp='kubectl get po -o wide'

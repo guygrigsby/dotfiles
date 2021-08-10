@@ -29,7 +29,6 @@ Plug 'iamcco/markdown-preview.nvim',
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
-Plug 'mattn/pastebin-vim'
 Plug 'moll/vim-node'
 "--------------}}}}}}}}}}}} Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -58,6 +57,9 @@ Plug 'xolox/vim-notes'
 "--------------}}}}}}}}}}}} Plug
 call plug#end()
 filetype plugin indent on
+set shiftwidth=2
+set tabstop=2
+set expandtab
 set background=dark
 syntax on
 set spell spelllang=en_us
