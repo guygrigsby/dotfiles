@@ -4,6 +4,7 @@ export DOTFILES=$HOME/dotfiles
 
 #Dotfiles this is where we are
 # Maybe I should move these to Google Drive
+curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
 ln -s $DOTFILES/vim/vimrc.vim $HOME/.vimrc
 ln -s $DOTFILES/git/gitignore.link $HOME/.gitignore
 ln -s $DOTFILES/git/config $HOME/.gitconfig
