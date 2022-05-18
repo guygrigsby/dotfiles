@@ -13,8 +13,8 @@ export DOTFILES="$HOME/dotfiles"
 typeset -U config_files
 config_files=($DOTFILES/*/*.zsh)
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}; do
+# load the path and var files
+for file in ${${(M)config_files:#*/path.zsh}:#*/vars.zsh}; do
   source "$file"
 done
 
@@ -23,8 +23,8 @@ autoload -U compinit -X && compinit -X
 source <(antibody init)
 antibody bundle < $DOTFILES/zsh/zsh_plugins.txt
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
+# load everything but the path, vars and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh:#*/vars.zsh}; do
   source "$file"
 done
 
@@ -49,7 +49,7 @@ bindkey '^[[Z' reverse-menu-complete
 # local all of the machine specific stuff last
 typeset -U local_configs
 local_configs=($HOME/.localrc/*.zsh)
-for file in ${(M)local_configs:#*.zsh}; do
+for file in ${(M)local_configs:#*}; do
   source "$file"
 done
 

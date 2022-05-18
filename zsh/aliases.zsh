@@ -1,5 +1,3 @@
-alias white='cd /Users/guygrigsby/go/src/github.com/guygrigsby/whitelist'
-
 alias gclum='git checkout main && git pull upstream main'
 alias gclom='git checkout main && git pull origin main'
 alias glom='git pull origin main'
@@ -21,6 +19,7 @@ alias kdel='kubectl delete po'
 
 alias tmp='cd ~/go/src/tmp'
 
+alias hc='cd ~/go/src/github.com/hashicorp'
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
 
@@ -30,13 +29,11 @@ alias vrc="nvim $DOTFILES/vim"
 alias zrc="nvim $DOTFILES/zsh; echo 'sourcing ~/.zshrc' && exec zsh"
 alias lrc="nvim ~/.localrc"
 alias .z='. ~/.zshrc'
-alias .l='. ~/.localrc'
+alias .l='. ~/.localrc/env.zsh'
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-
-alias op='cd $GG/vim-opine && vim -O indent/toml.vim sample.toml'
 
 alias nuget="mono /usr/local/bin/nuget.exe"
 alias pip=pip3

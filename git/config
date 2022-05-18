@@ -1,9 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Guy J Grigsby
-	email = guy@grigsby.dev
-[url "ssh://git@github.com/guygrigsby"]
-	insteadOf = https://github.com/guygrigsby
+	email = guy.grigsby@hashicorp.com
 [core]
 	excludesfile = /Users/guy/dotfiles/git/gitignore.link
 	editor = nvim
@@ -23,3 +21,9 @@
 [init]
 	defaultBranc = main
 	defaultBranch = main
+[submodule]
+	recurse = true
+[credential]
+	helper = osxkeychain
+[url "git@github.com:"]
+	insteadOf = https://github.com/
