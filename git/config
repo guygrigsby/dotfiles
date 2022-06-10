@@ -19,7 +19,6 @@
 [pull]
 	rebase = true
 [init]
-	defaultBranc = main
 	defaultBranch = main
 [submodule]
 	recurse = true

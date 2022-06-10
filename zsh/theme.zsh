@@ -27,10 +27,10 @@ function shorty () {
 	echo ${short_path:0:-1}
 }
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}[%{$fg_bold[white]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}%{$fg[green]%}]%{$fg_bold[yellow]%} ➜"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%}%{$fg[green]%}] ➜"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[magenta]%}(%{$fg_bold[white]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}:➜"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}%{$fg[magenta]%})%{$fg_bold[red]%} ✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%}%{$fg[magenta]%})%{$fg_bold[yellow]%} ✓"
 
 ZSH_THEME_GIT_PROMPT_CACHE="true"
 

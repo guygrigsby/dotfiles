@@ -26,6 +26,7 @@ Plug 'guygrigsby/piccolo', { 'branch': 'main' }
 Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }
 Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() } }
+Plug 'jvirtanen/vim-hcl'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
