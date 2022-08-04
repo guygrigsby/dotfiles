@@ -18,15 +18,15 @@ endif
 autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 
 call plug#begin('~/.vim/plugged')
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
-Plug '$GG/vim-opine', { 'for': 'toml' }
 Plug 'guygrigsby/piccolo', { 'branch': 'main' }
 Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }
-Plug 'iamcco/markdown-preview.nvim',
-      \ { 'do': { -> mkdp#util#install() } }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'jvirtanen/vim-hcl'
+Plug 'lifepillar/pgsql.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
@@ -37,7 +37,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 "--------------}}}}}}}}}}}} Telescope
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -46,9 +45,12 @@ Plug 'mileszs/ack.vim'
 Plug 'rust-lang/rust.vim',
       \ { 'for': 'rust' }
 Plug 'skywind3000/asyncrun.vim'
-Plug 'stevearc/vim-arduino'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tssm/fairyfloss.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'wadackel/vim-dogrun'
 Plug 'w0rp/ale'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'xolox/vim-misc'
@@ -64,10 +66,6 @@ set expandtab
 set background=dark
 syntax on
 set spell spelllang=en_us
-
-let gt='$HOME/dotfiles/vim/gutentags.vim'
-
-
 
 nmap <leader>t :UnitTest <CR>
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
@@ -153,7 +151,8 @@ if !has('nvim') && $TERM ==# 'screen-256color'
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 set termguicolors
-colorscheme piccolo
+colorscheme dogrun
+hi Comment cterm=italic
 
 " Turn off swap files
 set noswapfile
@@ -175,7 +174,10 @@ set autoindent
 set nostartofline
 set ruler
 set laststatus=2
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" airline and status line
+let g:airline_powerline_fonts = 1
+let g:airline_theme='fairyfloss'
+"set statusline=%<⟹%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 "set statusline+=%N%t%=(%y%V)
 set confirm
 set novisualbell
@@ -196,7 +198,10 @@ if filereadable(gt)
   source gt
 endif
 
-source ~/.localrc/vim/local.vim
+let lv='$HOME/.localrc/vim/local.vim'
+if filereadable(lv)
+  source lv
+endif
 
 " misc {{{ -------------------------------
 "
@@ -209,7 +214,8 @@ let g:notes_directories = ['~/Google Drive/notes']
 "{{{ ---------------------------_YCM-----------------------------------------
 "nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 "nnoremap <leader>dv :leftabove vertical YcmCompleter GoTo<CR>
-let g:ycm_goto_buffer_command="split"
+let g:ycm_clangd_binary_path= '/opt/homebrew/opt/llvm/bin'
+let g:ycm_goto_buffer_command='split'
 let g:ycm_auto_trigger = 1
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []

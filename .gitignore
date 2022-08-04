@@ -2,5 +2,3 @@ tags
 tags.lock
 mutt
 .DS_Store
-vim/en.utf-8.add
-vim/ftplugin

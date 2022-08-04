@@ -21,3 +21,4 @@ setopt    INC_APPEND_HISTORY  #Immediately append to the history file, not just 
 setopt 	  HIST_IGNORE_ALL_DUPS
 
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

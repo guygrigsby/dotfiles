@@ -24,14 +24,13 @@ nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 let g:ale_fix_on_save = 0
 
 " For running goimports on save
-let g:go_fmt_command ="goimports"
+let g:go_fmt_command = "goimports"
 let g:go_fmt_options = {
-      \ 'gofumpmt': '-s',
-      \ 'goimports': '-local github.com/nytimes',
+      \ 'goimports': '-local github.com/hashicorp',
       \ }
 let g:go_term_enabled = 0
 let g:go_term_mode = "split"
-let g:go_build_tags = "integration,test,webhook"
+let g:go_build_tags = "e2e,smoke_test"
 " GoMetaLinter settings
 "let g:go_metalinter_command='golangci-lint run --build-tags test,webhook,integration'
 "let g:go_metalinter_autosave = 1

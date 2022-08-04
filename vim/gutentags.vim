@@ -2,7 +2,7 @@ set statusline+=%{gutentags#statusline()}
 
 let g:gutentags_add_default_project_roots = 0
 let g:gutentags_project_root  = ['package.json', '.git', '.hg', '.svn']
-let g:gutentags_cache_dir = expand('~/.gutentags_cache')
+"let g:gutentags_cache_dir = expand('~/.gutentags_cache')
 let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1

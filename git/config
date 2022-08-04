@@ -3,7 +3,7 @@
 	name = Guy J Grigsby
 	email = guy.grigsby@hashicorp.com
 [core]
-	excludesfile = /Users/guy/dotfiles/git/gitignore.link
+	excludesfile = /Users/guygrigsby/dotfiles/git/gitignore.link
 	editor = nvim
 [color]
 	ui = true
