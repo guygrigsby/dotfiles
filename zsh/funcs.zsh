@@ -8,6 +8,10 @@ EOF
 vim $1.sh
 }
 
+function awsip () {
+  echo '54.165.53.116'
+}
+
 function flop () {
 	if [[ "$HOME" = "/Users/guy" ]]; then
 	echo "@work switching to home"
@@ -66,7 +70,7 @@ function got_helper () {
 function got () {
 	got_helper
 	go mod init
-	vim main.go -O
+	vim main.go
 }
 function gott () {
 	got_helper

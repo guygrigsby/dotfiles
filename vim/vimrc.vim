@@ -24,12 +24,14 @@ Plug 'fatih/vim-go', {
       \ 'for': ['go', 'markdown' ]}
 Plug 'guygrigsby/piccolo', { 'branch': 'main' }
 Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }
+Plug 'hashivim/vim-terraform'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'jvirtanen/vim-hcl'
 Plug 'lifepillar/pgsql.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/emmet-vim'
+"Plug 'mattn/vim-lsp-settings'
 Plug 'moll/vim-node'
 "--------------}}}}}}}}}}}} Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -38,6 +40,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 "--------------}}}}}}}}}}}} Telescope
 Plug 'pangloss/vim-javascript'
+Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prettier/vim-prettier'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'preservim/nerdtree'
@@ -69,6 +73,7 @@ set spell spelllang=en_us
 
 nmap <leader>t :UnitTest <CR>
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <Leader>f <cmd>lua require('telescope.builtin').live_grep()<cr>
 "nmap <C-p> :Files <CR>
 "let g:user_emmet_leader_key='<C-Z>,'
 
@@ -209,7 +214,7 @@ endif
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 " Notes dir
-let g:notes_directories = ['~/Google Drive/notes']
+let g:notes_directories = ['/Users/guygrigsby/Library/CloudStorage/GoogleDrive-guy.grigsby@hashicorp.com/My Drive/notes']
 
 "{{{ ---------------------------_YCM-----------------------------------------
 "nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
@@ -291,5 +296,4 @@ function! EnderDrop()
 endfunction<CR>
 
 nnoremap <silent> <Leader>ed :call EnderDrop()<CR>
-nnoremap <Leader>pp :make up <CR>
 "vim: sw=2 ts=2 et
