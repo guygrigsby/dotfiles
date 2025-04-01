@@ -25,6 +25,7 @@ alias tmp='cd ~/go/src/tmp'
 alias hc='cd ~/go/src/github.com/hashicorp'
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
+alias hcv='cd ~/projects/hashicorp'
 
 alias vim=nvim
 alias vi=nvim
@@ -44,3 +45,9 @@ alias pip=pip3
 alias door='doormat login && eval $(doormat aws export --account pedp_remote_dev)'
 alias up='hcloud hcp dev run'
 alias bprox='hcloud hcp dev connect 9200:boundary-d16a8388-a44f-4343-a9e0-7ed4ada4d603.boundary-controller:api'
+alias portal='open https://portal.cloud.hashicorp.com'
+
+# doormat
+alias dprod='doormat session --open-access-request --account cloud_prod --region us-east-1'
+alias dint='doormat session --open-access-request --account cloud_int --region us-east-1'
+alias ddev='doormat session --open-access-request --account cloud_dev --region us-east-1'

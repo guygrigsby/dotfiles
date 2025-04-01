@@ -35,6 +35,12 @@ function yolo () {
 
 }
 
+function cl () {
+  cd $1
+  ls -al
+}
+
+
 function decode_secrets () {
 
 	for e in $(kubectl -n appcatalog-realdev get secret $1 -o json | jq -r '.data | to_entries[] | "\(.key)=\(.value|@base64d)"'); do

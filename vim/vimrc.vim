@@ -18,10 +18,12 @@ endif
 autocmd BufNewFile,BufRead zsh_plugins.txt set filetype=zsh
 
 call plug#begin('~/.vim/plugged')
+Plug 'ycm-core/YouCompleteMe'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
+Plug 'github/copilot.vim'
 Plug 'guygrigsby/piccolo', { 'branch': 'main' }
 Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }
 Plug 'hashivim/vim-terraform'
@@ -56,7 +58,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'wadackel/vim-dogrun'
 Plug 'w0rp/ale'
-Plug 'ycm-core/YouCompleteMe'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 
@@ -70,6 +71,9 @@ set expandtab
 set background=dark
 syntax on
 set spell spelllang=en_us
+" Indent
+"set cursorcolumn
+"set cursorline
 
 nmap <leader>t :UnitTest <CR>
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
@@ -123,10 +127,9 @@ let g:ale_fixers = {
       \}
 let g:ale_linters = {
       \ 'javascript': ['eslint'],
-      \ 'go'        : ['golangci-lint'],
       \ 'cs'        : ['OmniSharp']
       \}
-let g:ale_go_golangci_lint_options = '--fast'
+let g:ale_go_golangci_lint_options = '--fast --fix'
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --no-semi'
 let g:ale_sign_style_error = '>>'
@@ -158,6 +161,7 @@ endif
 set termguicolors
 colorscheme dogrun
 hi Comment cterm=italic
+hi LineNr  cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " Turn off swap files
 set noswapfile

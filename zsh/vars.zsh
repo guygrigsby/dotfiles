@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # dev
-export BOUNDARY_ADDR="http://localhost:9200"
+export BOUNDARY_ADDR="https://8a22a76e-54be-4bb4-946b-eb72d9edad41.boundary.hashicorp.cloud:9200"
 export GOLANG_PROTOBUF_REGISTRATION_CONFLICT=warn
 export ICLOUD_DIR=$HOME/Library/Mobile\ Documents/com~apple~CloudDocs
 export NVM_DIR="$HOME/.nvm"
@@ -13,3 +13,8 @@ export SSH_AUTH_SOCK=~/.1password/agent.sock
 export HOMEBREW_NO_AUTO_UPDATE=1
 export NOMAD_TOKEN_NAME="cloud-boundary"
 export CONSUL_HTTP_TOKEN_NAME="cloud-team"
+export MISTRAL_API_KEY=6ZxvHNmaHjliX2xWI73ZBLaZsBZsmL6D
+export ASSEMBLYAI_API_KEY=d8f51f2036c24ecf880241ef3e447227
+# Vault
+export VAULT_DATA=$HOME/vault/data
+export VAULT_CONFIG=$HOME/vault/config/config.hcl

@@ -26,7 +26,7 @@ let g:ale_fix_on_save = 0
 " For running goimports on save
 let g:go_fmt_command = "goimports"
 let g:go_fmt_options = {
-      \ 'goimports': '-local github.com/hashicorp',
+      \ 'gosimports': '-w',
       \ }
 let g:go_term_enabled = 0
 let g:go_term_mode = "split"
