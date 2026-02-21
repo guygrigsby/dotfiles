@@ -178,3 +178,17 @@ envvar
 isIntegratedStorage
 isMlockSet
 configsPresent
+uploader
+autoSnapshotCfgName
+WithTimeout
+ctx
+loadedsnapshot
+autoseal
+unmarshal
+configs
+json
+gzipped
+cli
+rekey
+errored
+descripiton

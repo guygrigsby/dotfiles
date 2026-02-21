@@ -4,7 +4,7 @@ export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 v_mode=""
 
-PROMPT='%{$fg[green]%}['
+PROMPT='%n@%m%{$fg[green]%}['
 #PROMPT+=' %{$fg[cyan]%}%1~%{$reset_color%} $(git_prompt_info)'
 PROMPT+='%{$fg_bold[white]%}$(shorty)%{$reset_color%}'
 PROMPT+='%{$fg[green]%}]'

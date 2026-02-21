@@ -18,3 +18,6 @@ export ASSEMBLYAI_API_KEY=d8f51f2036c24ecf880241ef3e447227
 # Vault
 export VAULT_DATA=$HOME/vault/data
 export VAULT_CONFIG=$HOME/vault/config/config.hcl
+# HVD
+export VAULT_ADDR=https://vault-kv-public-vault-01062fd5.d2589e57.z1.hashicorp.cloud:8200
+export VAULT_NAMESPACE="admin"

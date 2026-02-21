@@ -1,3 +1,6 @@
 tags
+tags.tmp
+tags.temp
 .DS_Store
 Session.vim
+.vim

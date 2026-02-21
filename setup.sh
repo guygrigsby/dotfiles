@@ -15,3 +15,5 @@ ln -s $DOTFILES/vim/ftplugin $HOME/.vim/ftplugin
 ln -s $DOTFILES/ag/ignore $HOME/.ignore
 ln -s $DOTFILES/vim/plugin $HOME/.vim
 ln -s $DOTFILES/vim/after $HOME/.vim
+ln -s $DOTFILES/opencode/agents $HOME/.config/opencode
+ln -s $DOTFILES/nvim/init.lua $HOME/.config/nvim/init.lua
