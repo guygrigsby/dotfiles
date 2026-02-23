@@ -1,7 +1,7 @@
 # Agent Skills Catalog
 
-**Total Skills:** 38  
-**Last Updated:** 2026-02-16  
+**Total Skills:** 39  
+**Last Updated:** 2026-02-23  
 **Focus:** Go backend, DDD, microservices (gRPC), PostgreSQL, architecture documentation
 
 ---
@@ -83,7 +83,12 @@ Manual-only skill for minimizing total codebase size. Only activate when explici
 
 ---
 
-## 📋 Planning & Requirements (4 skills)
+## 📋 Planning & Requirements (5 skills)
+
+### critical-analysis
+Rigorous adversarial analysis of technical arguments, architectural decisions, and engineering proposals. Identifies logical fallacies, unexamined assumptions, edge cases, and conceptual weaknesses through structured critique. Use when you need pushback on ideas or want to strengthen proposals through challenge.
+
+**Best for:** Poking holes in technical arguments, stress-testing architectural decisions, finding edge cases
 
 ### requirements-clarity
 Clarify ambiguous requirements through focused dialogue before implementation. Use when requirements are unclear, features are complex (>2 days), or involve cross-team coordination. Ask two core questions - Why? (YAGNI check) and Simpler? (KISS check).
@@ -294,6 +299,7 @@ See **PROGRESSIVE_DISCLOSURE.md** for detailed guidelines.
 ## Maintenance Notes
 
 **Recent Updates:**
+- 2026-02-23: Added critical-analysis skill (adversarial critique, logical fallacy detection, edge case analysis)
 - 2026-02-16: Added olap-schema-design skill (Star Schema, Kimball methodology, CQRS query side)
 - 2026-02-14: Removed 13 skills (28% reduction) - See REMOVED_SKILLS.md
   - Beads Epic: SKILL-crl
