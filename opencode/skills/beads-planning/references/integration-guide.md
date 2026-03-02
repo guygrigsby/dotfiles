@@ -25,7 +25,6 @@ bd update skill-r3f.5 --status closed
 # Update in-progress items with current state
 bd update skill-r3f.6 --status ready --description "...
 ## Progress (2026-02-15)
-- Updated SKILL_INDEX.md total skill count
 - Added beads-planning to Planning section
 - Still need to verify formatting in Quick Reference section"
 
@@ -116,7 +115,6 @@ The `session-handoff` skill creates comprehensive handoff documents for pausing 
 
 ### Remaining Tasks
 - ⏸ skill-r32.7: Create progressive disclosure guidelines document (~1.5 hrs)
-- ⏸ skill-r32.8: Update SKILL_INDEX.md to note progressive disclosure (~30 min)
 
 ### Blockers
 None
@@ -151,7 +149,6 @@ bd update skill-r32.7 --status in_progress
 
 **What's next:**
 - Create guidelines document capturing patterns from this refactor
-- Update SKILL_INDEX to document progressive disclosure approach
 
 **Important notes:**
 - Progressive disclosure pattern working well - skills fork context on demand

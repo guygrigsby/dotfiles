@@ -240,7 +240,6 @@ Epic: Enable progressive disclosure across all skills (~8 hrs)
 ├── Task: Review commit-work references (1 hr) ⏸
 ├── Task: Verify session-close doesn't need references (30 min) ⏸
 ├── Task: Create progressive disclosure guidelines (1.5 hrs) ⏸
-└── Task: Update SKILL_INDEX.md (30 min) ⏸
 ```
 
 **See `references/issue-templates.md` for comprehensive templates.**

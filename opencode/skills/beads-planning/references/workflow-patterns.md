@@ -248,7 +248,6 @@ bd update skill-r3f.5 --status closed  # Finished SKILL.md
 bd update skill-r3f.6 --status ready --description "...
 
 ## Progress
-- Updated SKILL_INDEX.md line counts
 - Added beads-planning to Planning section
 - Still need to verify Quick Reference formatting"
 ```
@@ -260,10 +259,6 @@ bd create task "Test proactive beads detection with real scenarios" \
 - User describes complex feature
 - TodoWrite grows to 5+ items
 - Dependencies are mentioned"
-
-bd create task "Add beads-planning to Development Workflow section" \
-  --parent skill-r3f --description "SKILL_INDEX line 256 has Development 
-Workflow list. Add beads-planning after commit-refinement."
 ```
 
 ```bash
@@ -444,7 +439,6 @@ Effort: ~8-9 hours
 5. ⏸ `skill-r32.5`: Review commit-work references (~1 hr)
 6. ⏸ `skill-r32.6`: Verify session-close doesn't need references (~30 min)
 7. ⏸ `skill-r32.7`: Create progressive disclosure guidelines (~1.5 hrs)
-8. ⏸ `skill-r32.8`: Update SKILL_INDEX.md (~30 min)
 
 ### Workflow Timeline
 

@@ -53,7 +53,6 @@ Description:
 - domain-driven-design and oltp-schema-design under 200 lines each
 - References organized by concept
 - Guidelines document created
-- SKILL_INDEX updated
 
 ## Effort
 ~8-9 hours total across 8 tasks
@@ -70,7 +69,6 @@ to load detailed content only when needed, improving performance.
 - [ ] Review and enhance commit-work references
 - [ ] Verify session-close doesn't need references
 - [ ] Create progressive disclosure guidelines document
-- [ ] Update SKILL_INDEX.md to note progressive disclosure
 ```
 
 ---

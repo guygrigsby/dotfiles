@@ -22,10 +22,11 @@ alias kdel='kubectl delete po'
 
 alias tmp='cd ~/go/src/tmp'
 
-alias hc='cd ~/go/src/github.com/hashicorp'
+#alias hc='cd ~/go/src/github.com/hashicorp'
 alias gg='cd ~/go/src/github.com/guygrigsby'
 alias gome=' cd ~/go/src'
-alias hcv='cd ~/projects/hashicorp'
+alias hc='cd ~/projects/hashicorp'
+alias vn='cd ~/projects/hashicorp/calistoga-vault-enterprise'
 
 alias vim=nvim
 alias vi=nvim

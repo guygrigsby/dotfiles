@@ -25,7 +25,6 @@ Plug 'fatih/vim-go', {
       \ 'do': ':GoInstallBinaries',
       \ 'for': ['go', 'markdown' ]}
 Plug 'folke/sidekick.nvim'
-Plug 'folke/lazy.nvim'
 Plug 'github/copilot.vim'
 Plug 'guygrigsby/piccolo', { 'branch': 'main' }
 Plug 'guygrigsby/vim-scratch', { 'branch': 'main' }

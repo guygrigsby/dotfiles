@@ -82,3 +82,4 @@ See `references/command-reference.md` for detailed options.
 - domain-driven-design (refactored to main + 4 references)
 - oltp-schema-design (refactored to main + 4 references)
 - beads-planning (main + 3 references)
+- skill-creator (main + 3 references)
